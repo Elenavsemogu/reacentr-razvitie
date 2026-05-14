@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Реацентр Развитие — макет v2 (синяя палитра, настоящий лого, прямоугольник)</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --brand:#1D4CAA;        /* основной синий — точно из лого сети */
+    --brand-soft:#3B6FD8;
+    --brand-deep:#0F2F70;
+    --brand-pale:#EEF3FF;
+    --sky:#0EA5E9;
+    --cyan:#06B6D4;
+    --teal:#0E9F84;
+    --bg:#F8FAFC;
+    --bg-soft:#F0F5FF;
+    --card:#fff;
+    --text:#0F172A;
+    --text-mut:#475569;
+    --ring:rgba(29,76,170,.14);
+    --line:rgba(15,47,112,.08);
+  }
+  body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+
+  /* ============================================
+     INFO PLATE (вверху страницы — служебная)
+     ============================================ */
+  .info{background:#0F172A;color:#fff;padding:12px 24px;display:flex;gap:20px;align-items:center;justify-content:space-between;font-size:13px;position:sticky;top:0;z-index:99}
+  .info b{font-weight:600;font-size:14px}
+
+  /* ============================================
+     HEADER (с настоящим лого)
+     ============================================ */
+  .hdr{background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+  .hdr-in{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+  .brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
+  .brand img{height:48px;width:auto}
+  .brand-sub{font-size:11px;color:var(--text-mut);font-weight:500;letter-spacing:.05em;border-left:1px solid var(--line);padding-left:14px;line-height:1.4}
+  .brand-sub b{display:block;color:var(--brand-deep);font-weight:700;font-size:13px;letter-spacing:0;margin-bottom:2px}
+  .nav{display:flex;gap:22px;align-items:center}
+  .nav a{font-size:14px;font-weight:500;color:var(--text);transition:color .2s;position:relative;padding:6px 0}
+  .nav a:hover{color:var(--brand)}
+  .nav a::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--brand);transform:scaleX(0);transition:transform .25s;transform-origin:left}
+  .nav a:hover::after{transform:scaleX(1)}
+  .hdr-phone{display:flex;flex-direction:column;align-items:flex-end;line-height:1.2}
+  .hdr-phone a{font-family:'Geologica',sans-serif;font-weight:700;font-size:16px;color:var(--brand-deep)}
+  .hdr-phone small{font-size:11px;color:var(--text-mut);font-weight:500}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;border-radius:12px;transition:all .25s;border:none;cursor:pointer;text-align:center;justify-content:center}
+  .btn-pri{padding:12px 22px;background:var(--brand);color:#fff;box-shadow:0 8px 22px var(--ring)}
+  .btn-pri:hover{transform:translateY(-2px);background:var(--brand-deep);box-shadow:0 12px 28px rgba(15,47,112,.32)}
+  .btn-out{padding:12px 22px;background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+  .btn-out:hover{background:var(--brand);color:#fff}
+  .btn-lg{padding:15px 28px;font-size:15px;border-radius:14px}
+
+  /* ============================================
+     HERO — мягкий sky / голубой фон (brand-pale + sky из палитры)
+     ============================================ */
+  .hero{position:relative;overflow:hidden;padding:56px 0 0;color:var(--text);
+    background:
+      radial-gradient(900px 520px at 18% 12%, rgba(14,165,233,.22) 0%, transparent 58%),
+      radial-gradient(760px 440px at 92% 78%, rgba(6,182,212,.16) 0%, transparent 52%),
+      linear-gradient(165deg, var(--brand-pale) 0%, #E3F2FD 42%, #D7ECFA 100%);}
+  /* лёгкая «воздушная» сетка точек */
+  .hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
+    background-image:radial-gradient(circle, rgba(29,76,170,.12) 1px, transparent 1.35px);
+    background-size:22px 22px;}
+
+  .hero-in{max-width:1280px;margin:0 auto;padding:0 32px 56px;display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+  .hero-copy{padding-top:8px}
+  .hero-tag{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;background:rgba(255,255,255,.72);border:1px solid rgba(14,165,233,.22);backdrop-filter:blur(8px);border-radius:100px;font-size:11px;font-weight:600;color:var(--brand-deep);letter-spacing:.10em;text-transform:uppercase;width:fit-content;margin-bottom:26px;box-shadow:0 4px 14px rgba(14,165,233,.08)}
+  .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 3px rgba(14,165,233,.25);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.6)}}
+  .hero-h1{font-family:'Geologica',sans-serif;font-weight:700;font-size:54px;line-height:1.08;letter-spacing:-.02em;color:var(--brand-deep);margin-bottom:22px}
+  .hero-h1 .hl{color:var(--sky)}
+  .hero-sub{font-size:17px;line-height:1.65;color:var(--text-mut);max-width:560px;margin-bottom:32px}
+  .hero-cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:32px}
+  /* кнопки на светлом небе — как на всём сайте */
+  .hero .btn-pri{background:var(--brand);color:#fff;box-shadow:0 10px 28px rgba(29,76,170,.28);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+  .hero .btn-pri:hover{background:var(--brand-deep);transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,47,112,.35)}
+  .hero .btn-out{background:rgba(255,255,255,.65);color:var(--brand);border:1.5px solid rgba(29,76,170,.35);backdrop-filter:blur(6px);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+  .hero .btn-out:hover{background:#fff;border-color:var(--brand)}
+  /* телефоны */
+  .hero-phones{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+  .hero-phones a{font-family:'Geologica',sans-serif;font-weight:600;font-size:22px;color:var(--brand-deep);line-height:1.2;letter-spacing:.01em}
+  .hero-phones a:hover{color:var(--sky)}
+  .hero-phones small{font-size:13px;color:var(--text-mut);font-weight:500;margin-top:6px}
+
+  /* ============================================
+     Hero visual — сетка из 6 вертикальных капсул
+     ============================================ */
+  .caps-wrap{position:relative;width:100%;min-height:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start;padding-top:4px}
+  .caps-wrap .col{display:flex;flex-direction:column;gap:14px;will-change:transform;transition:transform .15s ease-out}
+  .caps-wrap .col-l{transform:translateY(0)}
+  .caps-wrap .col-m{transform:translateY(-30px)}
+  .caps-wrap .col-r{transform:translateY(15px)}
+
+  .caps{position:relative;width:100%;border-radius:999px;overflow:hidden;box-shadow:0 20px 40px -14px rgba(29,76,170,.22),0 8px 20px -6px rgba(14,165,233,.12);background:var(--brand);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+  .caps:hover{transform:scale(1.03)}
+  .caps.h-l{aspect-ratio:1/2.6}
+  .caps.h-m{aspect-ratio:1/3.2}
+  .caps.h-s{aspect-ratio:1/2.1}
+  .caps img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1.4s ease-in-out}
+  .caps img.is-active{opacity:1}
+
+  /* Цвета капсул — синяя семья + sky/cyan на светлом hero */
+  .caps.c1{background:#2E63C8}
+  .caps.c2{background:#13B8A0}
+  .caps.c3{background:#22C5E0}
+  .caps.c4{background:#5887E2}
+  .caps.c5{background:#2BB4ED}
+  .caps.c6{background:#7AA9F0}
+
+  /* Decorative dots — акценты sky / brand на светлом фоне */
+  .caps-wrap .deco{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
+  .caps-wrap .deco.d1{width:16px;height:16px;background:var(--sky);top:6%;left:8%;box-shadow:0 0 14px rgba(14,165,233,.45)}
+  .caps-wrap .deco.d2{width:10px;height:10px;background:var(--brand-soft);top:46%;left:-3%;opacity:.85}
+  .caps-wrap .deco.d3{width:12px;height:12px;background:var(--cyan);bottom:10%;left:32%;box-shadow:0 0 12px rgba(6,182,212,.4)}
+  .caps-wrap .deco.d4{width:14px;height:14px;background:var(--brand-pale);border:2px solid var(--brand-soft);top:18%;right:-2%;opacity:1}
+  .caps-wrap .deco.d5{width:8px;height:8px;background:var(--brand);bottom:18%;right:14%}
+
+  /* Бейдж сети — поверх капсул */
+  .network-badge{position:absolute;left:-10px;top:-6px;z-index:5;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;background:#fff;border-radius:100px;box-shadow:0 12px 28px rgba(29,76,170,.18);font-size:12px;font-weight:600;color:var(--brand-deep)}
+  .network-badge .nd{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--brand),var(--sky));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;font-family:'Geologica',sans-serif}
+
+  /* ============================================
+     HERO BAR — 4 преимущества под Hero (на белом фоне)
+     ============================================ */
+  .hero-bar{background:#fff;padding:32px 0;position:relative;z-index:2}
+  .hero-bar-in{max-width:1280px;margin:0 auto;padding:0 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .bar-item{display:flex;gap:14px;align-items:center}
+  .bar-item .bi-ic{width:48px;height:48px;border-radius:14px;background:var(--brand-pale);color:var(--brand);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .bar-item .bi-ic svg{width:24px;height:24px}
+  .bar-item b{font-family:'Geologica',sans-serif;font-weight:600;font-size:15px;color:var(--brand-deep);display:block;line-height:1.2;margin-bottom:3px}
+  .bar-item span{font-size:12px;color:var(--text-mut);line-height:1.35}
+
+  /* ============================================
+     SECTION — TEAM
+     ============================================ */
+  .section{padding:80px 0}
+  .section-in{max-width:1280px;margin:0 auto;padding:0 32px}
+  .section-h{font-family:'Geologica',sans-serif;font-weight:700;font-size:36px;color:var(--brand-deep);margin-bottom:12px;line-height:1.15;letter-spacing:-.01em}
+  .section-h .hl{color:var(--brand)}
+  .section-sub{font-size:17px;color:var(--text-mut);max-width:660px;margin-bottom:48px;line-height:1.6}
+
+  .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+  .card{background:var(--card);border-radius:22px;overflow:hidden;box-shadow:0 4px 18px rgba(15,47,112,.05);transition:all .35s cubic-bezier(.16,1,.3,1);border:1px solid var(--line);position:relative}
+  .card:hover{transform:translateY(-8px);box-shadow:0 24px 48px -16px var(--ring)}
+  .card-img{aspect-ratio:3/4;background:var(--brand-pale);overflow:hidden;position:relative}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .card:hover .card-img img{transform:scale(1.05)}
+  .card-spec{position:absolute;top:14px;left:14px;color:#fff;font-size:11px;font-weight:600;padding:5px 11px;border-radius:100px;letter-spacing:.02em;background:var(--brand);box-shadow:0 4px 12px rgba(29,76,170,.3)}
+  .card-spec.sk{background:var(--sky)}
+  .card-spec.tl{background:var(--teal)}
+  .card-spec.cy{background:var(--cyan)}
+  .card-body{padding:18px}
+  .card-name{font-family:'Geologica',sans-serif;font-weight:600;font-size:17px;color:var(--brand-deep);margin-bottom:4px}
+  .card-role{font-size:13px;color:var(--text-mut);font-weight:500;margin-bottom:12px}
+  .card-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--brand);transition:gap .25s}
+  .card-link::after{content:'→'}
+  .card:hover .card-link{gap:9px}
+
+  /* ============================================
+     PALETTE STRIP
+     ============================================ */
+  .palette{max-width:1280px;margin:0 auto;padding:24px 32px;background:var(--card);border-radius:24px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;box-shadow:0 4px 18px rgba(15,47,112,.05);border:1px solid var(--line)}
+  .palette-t{font-family:'Geologica',sans-serif;font-weight:600;font-size:13px;color:var(--text-mut);letter-spacing:.04em}
+  .sw{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--text-mut);font-weight:500}
+  .sw-c{width:36px;height:36px;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .sw b{display:block;color:var(--text);font-weight:600;font-size:11px;font-family:monospace;letter-spacing:.02em}
+
+  @media (max-width:980px){
+    .nav{display:none}
+    .hdr-phone{display:none}
+    .hero-bar-in{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:760px){
+    .hero-in{grid-template-columns:1fr;gap:36px;padding:0 24px 36px}
+    .hero-h1{font-size:36px}
+    .team-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+    .palette{flex-direction:column;align-items:flex-start}
+    .section-h{font-size:26px}
+    .hero-bar-in{grid-template-columns:1fr 1fr;gap:14px}
+    .brand img{height:42px}
+    .brand-sub{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="info">
+  <div><b>Макет v2.</b> &nbsp;<span style="opacity:.7">Настоящий лого сети · прямоугольное фото со скруглёнными углами · без курсива и наклонов · только Geologica + Inter.</span></div>
+</div>
+
+<header class="hdr">
+  <div class="hdr-in">
+    <div class="brand">
+      <img src="img/logo.svg" alt="Реацентр Развитие">
+      <div class="brand-sub">
+        <b>Барнаул</b>
+        Детская реабилитация
+      </div>
+    </div>
+    <nav class="nav">
+      <a>О центре</a>
+      <a>Специалисты</a>
+      <a>Услуги</a>
+      <a>Цены</a>
+      <a>Контакты</a>
+    </nav>
+    <a class="btn btn-pri">Записаться</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-in">
+    <div class="hero-copy">
+      <div class="hero-tag"><span class="dot"></span> Федеральная сеть с 1994 года</div>
+      <h1 class="hero-h1">Помогаем детям <span class="hl">заговорить</span>,<br>освоить навыки и&nbsp;развиваться</h1>
+      <p class="hero-sub">Детское отделение неврологии и рефлексотерапии в&nbsp;Барнауле. Реабилитация при ДЦП, аутизме, задержках речи и&nbsp;развития по&nbsp;запатентованной методике, одобренной Минздравом&nbsp;РФ.</p>
+      <div class="hero-cta">
+        <a class="btn btn-pri btn-lg">Записаться на приём</a>
+        <a class="btn btn-out btn-lg">Наши услуги</a>
+      </div>
+      <div class="hero-phones">
+        <a href="tel:+73852506146">+7 (3852) 50-61-46</a>
+        <a href="tel:+79237517742">+7 (923) 751-77-42</a>
+        <small>Пн–Пт 08:00–20:00</small>
+      </div>
+    </div>
+    <div class="caps-wrap" id="caps">
+      <div class="network-badge"><div class="nd">Р</div> Сеть «Реацентр» · 30 лет</div>
+      <span class="deco d1"></span>
+      <span class="deco d2"></span>
+      <span class="deco d3"></span>
+      <span class="deco d4"></span>
+      <span class="deco d5"></span>
+
+      <div class="col col-l">
+        <div class="caps c1 h-l">
+          <img src="img/gan-06479.jpg" class="is-active" alt="">
+          <img src="img/gan-06700.jpg" alt="">
+          <img src="img/gan-06581.jpg" alt="">
+        </div>
+        <div class="caps c4 h-s">
+          <img src="img/gan-06678.jpg" class="is-active" alt="">
+          <img src="img/gan-06664.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="col col-m">
+        <div class="caps c2 h-m">
+          <img src="img/gan-06545.jpg" class="is-active" alt="">
+          <img src="img/gan-06616.jpg" alt="">
+          <img src="img/gan-06708.jpg" alt="">
+        </div>
+        <div class="caps c5 h-s">
+          <img src="img/gan-06577.jpg" class="is-active" alt="">
+          <img src="img/gan-06676.jpg" alt="">
+        </div>
+      </div>
+
+      <div class="col col-r">
+        <div class="caps c3 h-s">
+          <img src="img/gan-06505.jpg" class="is-active" alt="">
+          <img src="img/gan-06581.jpg" alt="">
+        </div>
+        <div class="caps c6 h-l">
+          <img src="img/gan-06581.jpg" class="is-active" alt="">
+          <img src="img/gan-06479.jpg" alt="">
+          <img src="img/gan-06676.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bar">
+    <div class="hero-bar-in">
+      <div class="bar-item">
+        <div class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <div><b>Лицензия Минздрава</b><span>Л041-01151-22 · с 2019 года</span></div>
+      </div>
+      <div class="bar-item">
+        <div class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></div>
+        <div><b>12 специалистов</b><span>Неврологи, психологи, логопеды, массажисты</span></div>
+      </div>
+      <div class="bar-item">
+        <div class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+        <div><b>Запись через MAX</b><span>Российский мессенджер · быстро и удобно</span></div>
+      </div>
+      <div class="bar-item">
+        <div class="bi-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L4 6v6c0 4.97 3.05 9.5 8 11 4.95-1.5 8-6.03 8-11V6l-8-4z"/></svg></div>
+        <div><b>87% улучшений</b><span>Отмечают родители по итогам курса</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:#fff">
+  <div class="section-in">
+    <h2 class="section-h">Наши <span class="hl">специалисты</span></h2>
+    <p class="section-sub">12 врачей и педагогов, которые работают именно с детьми. Все с действующими сертификатами и непрерывной практикой. Каждый прошёл обучение фирменной методике «Реацентр».</p>
+    <div class="team-grid">
+      <div class="card"><div class="card-img"><span class="card-spec">Невролог</span><img src="img/team-akimova.jpg" alt=""></div><div class="card-body"><div class="card-name">Акимова Ю.Е.</div><div class="card-role">Детский невролог · 12 лет опыта</div><a class="card-link">Образование и сертификаты</a></div></div>
+      <div class="card"><div class="card-img"><span class="card-spec sk">Массажист</span><img src="img/team-katykin-new.jpg" alt=""></div><div class="card-body"><div class="card-name">Катыкин А.С.</div><div class="card-role">Детский массажист</div><a class="card-link">Образование и сертификаты</a></div></div>
+      <div class="card"><div class="card-img"><span class="card-spec tl">Логопед</span><img src="img/team-tekuteva-new.jpg" alt=""></div><div class="card-body"><div class="card-name">Текутьева Н.А.</div><div class="card-role">Логопед-дефектолог</div><a class="card-link">Образование и сертификаты</a></div></div>
+      <div class="card"><div class="card-img"><span class="card-spec cy">Психолог</span><img src="img/team-polezhaeva.jpg" alt=""></div><div class="card-body"><div class="card-name">Полежаева А.С.</div><div class="card-role">Детский психолог</div><a class="card-link">Образование и сертификаты</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 80px;background:#fff">
+  <div class="section-in">
+    <div class="palette">
+      <div class="palette-t">ПАЛИТРА (из лого сети)</div>
+      <div class="sw"><div class="sw-c" style="background:#1D4CAA"></div><div>Бренд <b>#1D4CAA</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#3B6FD8"></div><div>Мягкий <b>#3B6FD8</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#0F2F70"></div><div>Тёмный <b>#0F2F70</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#0EA5E9"></div><div>Sky <b>#0EA5E9</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#06B6D4"></div><div>Cyan <b>#06B6D4</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#0E9F84"></div><div>Бирюза <b>#0E9F84</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#F0F5FF;border:1px solid #ddd"></div><div>Фон <b>#F0F5FF</b></div></div>
+      <div class="sw"><div class="sw-c" style="background:#0F2F70"></div><div>Текст <b>#0F2F70</b></div></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 1) Cross-fade фотографий в каждой капсуле, со сдвигом фаз
+  document.querySelectorAll('.caps').forEach((cap, idx) => {
+    const imgs = cap.querySelectorAll('img');
+    if(imgs.length < 2) return;
+    let i = 0;
+    setTimeout(() => {
+      setInterval(() => {
+        imgs[i].classList.remove('is-active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('is-active');
+      }, 3800 + idx * 200);
+    }, idx * 600);
+  });
+
+  // 2) Лёгкий параллакс капсул при скролле
+  // Левая и правая колонки движутся вверх, средняя — вниз (и наоборот при обратном скролле).
+  const colL = document.querySelector('.col-l');
+  const colM = document.querySelector('.col-m');
+  const colR = document.querySelector('.col-r');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
+  function onScroll(){
+    if(reduced) return;
+    const y = window.scrollY;
+    // капсулы видны только в hero — ограничим эффект первыми 800px
+    const k = Math.min(y, 800);
+    if(colL) colL.style.transform = `translateY(${ k * -0.08 }px)`;
+    if(colM) colM.style.transform = `translateY(${ -30 + k * 0.10 }px)`;
+    if(colR) colR.style.transform = `translateY(${ 15 + k * -0.06 }px)`;
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if(!ticking){
+      window.requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, { passive: true });
+</script>
+
+</body>
+</html>

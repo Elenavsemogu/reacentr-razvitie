@@ -21,8 +21,8 @@
             --white:#FFFFFF;
             --gray:#718096;
             --gray-light:#CBD5E0;
-            --gray-bg:#F7FAFC;
-            --warm-bg:#F0FDFA;
+            --gray-bg:#F8FBFC;
+            --warm-bg:#F7FDFB;
             --accent:#0891B2;
             --accent-hover:#0E7490;
             --accent-light:#22D3EE;
@@ -30,13 +30,19 @@
             --accent-pale:#ECFEFF;
             --accent-gradient:linear-gradient(135deg,#0891B2,#2DD4BF);
             --hero-gradient:linear-gradient(135deg,#0E7490 0%,#0891B2 35%,#14B8A6 70%,#2DD4BF 100%);
+            --net-brand:#1D4CAA;
+            --net-brand-soft:#3B6FD8;
+            --net-brand-deep:#0F2F70;
+            --net-brand-pale:#EEF3FF;
+            --net-sky:#0EA5E9;
+            --net-cyan:#06B6D4;
             --heading-font:'Nunito',sans-serif;
-            --r:14px;
-            --r-lg:24px;
-            --r-sm:10px;
-            --shadow-sm:0 2px 12px rgba(8,145,178,.06);
-            --shadow:0 6px 24px rgba(8,145,178,.08);
-            --shadow-lg:0 16px 48px rgba(8,145,178,.12);
+            --r:18px;
+            --r-lg:30px;
+            --r-sm:12px;
+            --shadow-sm:0 6px 20px rgba(8,145,178,.06);
+            --shadow:0 12px 34px rgba(8,145,178,.09);
+            --shadow-lg:0 22px 58px rgba(8,145,178,.14);
             --shadow-accent:0 8px 28px rgba(8,145,178,.22);
         }
         html{scroll-behavior:smooth}
@@ -52,9 +58,6 @@
         .btn--outline:hover{background:var(--accent);color:var(--white);box-shadow:var(--shadow-accent)}
         .btn--white{background:#fff;color:var(--accent);border:none;box-shadow:0 4px 20px rgba(0,0,0,.12)}
         .btn--white:hover{background:#f0fdfa;transform:translateY(-1px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
-        .hero .btn--outline{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.35);box-shadow:none;backdrop-filter:blur(8px)}
-        .hero .btn--outline:hover{background:rgba(255,255,255,.25);color:#fff;box-shadow:none}
-
         /* ═══ TOPBAR ═══ */
         .topbar{background:var(--accent-dark);color:rgba(255,255,255,.85);font-size:13px;position:fixed;top:0;left:0;right:0;z-index:101;transition:transform .3s;border-bottom:none}
         .topbar-inner{display:flex;align-items:center;justify-content:space-between;height:40px;max-width:1200px;margin:0 auto;padding:0 40px}
@@ -71,9 +74,9 @@
         /* ═══ HEADER ═══ */
         header{position:fixed;top:40px;left:0;right:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);transition:all .3s;border-bottom:1px solid transparent}
         header.scrolled{box-shadow:0 2px 20px rgba(8,145,178,.06);top:0;border-bottom:1px solid rgba(8,145,178,.06)}
-        .h-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto;padding:0 40px}
+        .h-inner{display:flex;align-items:center;justify-content:space-between;height:78px;max-width:1200px;margin:0 auto;padding:0 40px}
         .logo{display:flex;align-items:center;gap:0}
-        .logo img{height:34px;width:auto}
+        .logo img{height:50px;width:auto}
         .logo-sub{font-size:9px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gray);margin-top:2px;display:none}
         nav{display:flex;gap:28px}
         nav a{font-size:14px;color:var(--black);letter-spacing:.01em;transition:color .25s;font-weight:500}
@@ -86,30 +89,60 @@
         .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
         .burger.open span:nth-child(2){opacity:0}
         .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-        .mobile-menu{position:fixed;top:104px;left:0;right:0;background:var(--white);box-shadow:var(--shadow-lg);z-index:99;padding:24px 32px;display:none;flex-direction:column;gap:0}
+        .mobile-menu{position:fixed;top:118px;left:0;right:0;background:var(--white);box-shadow:var(--shadow-lg);z-index:99;padding:24px 32px;display:none;flex-direction:column;gap:0}
         .mobile-menu.open{display:flex}
         .mobile-menu a{font-size:15px;color:var(--black);font-weight:500;padding:12px 0;border-bottom:1px solid var(--gray-bg)}
         .mobile-menu a:hover{color:var(--accent);opacity:1}
         .mobile-menu .btn{width:100%;margin-top:12px;text-align:center}
 
-        /* ═══ HERO ═══ */
-        .hero{padding:160px 0 100px;background:var(--hero-gradient);position:relative;overflow:hidden;color:#fff}
-        .hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='%23fff' fill-opacity='.04'/%3E%3C/svg%3E");pointer-events:none}
-        .hero::after{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,255,255,.08) 0%,transparent 70%);pointer-events:none}
-        .hero-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
-        .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;background:rgba(255,255,255,.15);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:12px;font-weight:600;color:#fff;letter-spacing:.03em;text-transform:uppercase;margin-bottom:20px;width:fit-content}
-        .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:#2DD4BF}
+        /* ═══ HERO ═══ мягкий sky + капсулы */
+        .hero{padding:168px 0 72px;position:relative;overflow:hidden;color:var(--black);
+            background:
+                radial-gradient(880px 500px at 18% 12%,rgba(14,165,233,.22) 0%,transparent 58%),
+                radial-gradient(720px 420px at 92% 78%,rgba(6,182,212,.16) 0%,transparent 52%),
+                linear-gradient(165deg,var(--net-brand-pale) 0%,#E3F2FD 42%,#D7ECFA 100%)}
+        .hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
+            background-image:radial-gradient(circle,rgba(29,76,170,.12) 1px,transparent 1.35px);background-size:22px 22px}
+        .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start;position:relative;z-index:1}
+        .hero-copy{padding-top:6px}
+        .hero-tag{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;background:rgba(255,255,255,.72);border:1px solid rgba(14,165,233,.22);backdrop-filter:blur(8px);border-radius:100px;font-size:11px;font-weight:600;color:var(--net-brand-deep);letter-spacing:.10em;text-transform:uppercase;margin-bottom:22px;width:fit-content;box-shadow:0 4px 14px rgba(14,165,233,.08)}
+        .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--net-sky);box-shadow:0 0 0 3px rgba(14,165,233,.25);animation:heroPulse 2s ease-in-out infinite}
+        @keyframes heroPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.35)}}
         h1{font-family:var(--heading-font);font-size:clamp(30px,3.5vw,46px);font-weight:800;line-height:1.15;color:#fff;letter-spacing:-.01em;margin-bottom:18px}
+        .hero h1{color:var(--net-brand-deep)}
         h1 .hl{color:#A7F3D0}
-        .hero-desc{font-size:16px;color:rgba(255,255,255,.85);line-height:1.75;max-width:480px;margin-bottom:28px}
-        .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px}
+        .hero h1 .hl{color:var(--net-sky)}
+        .hero-desc{font-size:16px;color:var(--gray);line-height:1.75;max-width:520px;margin-bottom:26px}
+        .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+        .hero-btn-pri{background:var(--net-brand)!important;color:#fff!important;border:none!important;box-shadow:0 10px 28px rgba(29,76,170,.28)!important}
+        .hero-btn-pri:hover{background:var(--net-brand-deep)!important;opacity:1!important;transform:translateY(-2px);box-shadow:0 14px 34px rgba(15,47,112,.35)!important}
+        .hero-btn-sec{background:rgba(255,255,255,.65)!important;color:var(--net-brand)!important;border:1.5px solid rgba(29,76,170,.35)!important;box-shadow:none!important}
+        .hero-btn-sec:hover{background:#fff!important;border-color:var(--net-brand)!important;opacity:1!important}
         .hero-phones{display:flex;flex-direction:column;gap:6px}
-        .hero-phones a{font-size:20px;font-weight:700;color:#fff;letter-spacing:.01em}
-        .hero-phones a:hover{color:#A7F3D0;opacity:1}
-        .hero-phones small{font-size:12px;color:rgba(255,255,255,.55);font-weight:400}
-        .hero-img{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.2);aspect-ratio:3/4;background:rgba(255,255,255,.1)}
-        .hero-img img{width:100%;height:100%;object-fit:cover;object-position:right center}
-        .hero-img .ph-text{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.5);font-weight:600;text-transform:uppercase;letter-spacing:.1em}
+        .hero-phones a{font-size:20px;font-weight:700;color:var(--net-brand-deep);letter-spacing:.01em}
+        .hero-phones a:hover{color:var(--net-sky);opacity:1}
+        .hero-phones small{font-size:13px;color:var(--gray);font-weight:500;margin-top:4px}
+        .caps-wrap{position:relative;width:100%;min-height:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start;padding-top:4px}
+        .caps-wrap .hero-cap-col{display:flex;flex-direction:column;gap:14px;will-change:transform;transition:transform .15s ease-out}
+        .caps-wrap .hero-cap-col.col-l{transform:translateY(0)}
+        .caps-wrap .hero-cap-col.col-m{transform:translateY(-30px)}
+        .caps-wrap .hero-cap-col.col-r{transform:translateY(15px)}
+        .caps{position:relative;width:100%;border-radius:999px;overflow:hidden;box-shadow:0 20px 40px -14px rgba(29,76,170,.22),0 8px 20px -6px rgba(14,165,233,.12);background:var(--net-brand);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+        .caps:hover{transform:scale(1.03)}
+        .caps.h-l{aspect-ratio:1/2.6}
+        .caps.h-m{aspect-ratio:1/3.2}
+        .caps.h-s{aspect-ratio:1/2.1}
+        .caps img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity 1.4s ease-in-out}
+        .caps img.is-active{opacity:1}
+        .caps.c1{background:#2E63C8}.caps.c2{background:#13B8A0}.caps.c3{background:#22C5E0}.caps.c4{background:#5887E2}.caps.c5{background:#2BB4ED}.caps.c6{background:#7AA9F0}
+        .caps-wrap .cap-deco{position:absolute;border-radius:50%;pointer-events:none;z-index:1}
+        .caps-wrap .cap-deco.d1{width:16px;height:16px;background:var(--net-sky);top:6%;left:8%;box-shadow:0 0 14px rgba(14,165,233,.45)}
+        .caps-wrap .cap-deco.d2{width:10px;height:10px;background:var(--net-brand-soft);top:46%;left:-3%;opacity:.85}
+        .caps-wrap .cap-deco.d3{width:12px;height:12px;background:var(--net-cyan);bottom:10%;left:32%;box-shadow:0 0 12px rgba(6,182,212,.4)}
+        .caps-wrap .cap-deco.d4{width:14px;height:14px;background:var(--net-brand-pale);border:2px solid var(--net-brand-soft);top:18%;right:-2%}
+        .caps-wrap .cap-deco.d5{width:8px;height:8px;background:var(--net-brand);bottom:18%;right:14%}
+        .network-badge{position:absolute;left:-10px;top:-6px;z-index:5;display:flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;background:#fff;border-radius:100px;box-shadow:0 12px 28px rgba(29,76,170,.18);font-size:12px;font-weight:600;color:var(--net-brand-deep)}
+        .network-badge .nd{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--net-brand),var(--net-sky));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:11px;font-family:var(--heading-font)}
 
         /* ═══ SECTIONS ═══ */
         .sec{padding:80px 0}
@@ -121,7 +154,8 @@
         /* ═══ TRUST BADGES ═══ */
         .trust-strip{padding:48px 0;background:var(--white);border-bottom:1px solid var(--gray-bg)}
         .trust-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
-        .trust-card{text-align:center;padding:24px 16px}
+        .trust-card{text-align:center;padding:24px 16px;border-radius:var(--r);transition:transform .35s ease,box-shadow .35s ease,background .35s ease}
+        .trust-card:hover{background:var(--white);box-shadow:var(--shadow-sm);transform:translateY(-4px)}
         .trust-num{font-family:var(--heading-font);font-size:32px;font-weight:900;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;margin-bottom:6px}
         .trust-label{font-size:13px;color:var(--gray);line-height:1.5;font-weight:500}
         .trust-label small{display:block;font-size:11px;color:var(--gray-light);margin-top:2px}
@@ -137,15 +171,17 @@
 
         /* ═══ DIAGNOSES ═══ */
         .diag-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-        .diag-card{padding:20px;background:var(--white);border:1px solid var(--gray-bg);border-radius:var(--r);transition:all .3s;cursor:default}
-        .diag-card:hover{border-color:var(--accent-light);box-shadow:var(--shadow);transform:translateY(-2px)}
+        .diag-card{padding:20px;background:var(--white);border:1px solid var(--gray-bg);border-radius:var(--r);transition:all .35s ease;cursor:default}
+        .diag-card:hover{border-color:var(--accent-light);box-shadow:var(--shadow);transform:translateY(-4px)}
         .diag-card h4{font-size:14px;font-weight:700;margin-bottom:4px;color:var(--black)}
         .diag-card p{font-size:12px;color:var(--gray);line-height:1.5}
 
         /* ═══ SERVICES ═══ */
         .srv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-        .srv{padding:28px;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-sm);cursor:pointer;transition:all .3s;border:1px solid transparent;position:relative}
-        .srv:hover{box-shadow:var(--shadow);border-color:var(--accent-light);transform:translateY(-2px)}
+        .srv{padding:28px;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-sm);cursor:pointer;transition:all .35s ease;border:1px solid transparent;position:relative;overflow:hidden}
+        .srv::after{content:'';position:absolute;right:-50px;bottom:-50px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(45,212,191,.16),transparent 70%);opacity:0;transition:opacity .35s ease,transform .35s ease}
+        .srv:hover{box-shadow:var(--shadow);border-color:var(--accent-light);transform:translateY(-4px)}
+        .srv:hover::after{opacity:1;transform:scale(1.15)}
         .srv-icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--accent-pale);display:flex;align-items:center;justify-content:center;margin-bottom:14px;color:var(--accent);font-size:18px}
         .srv h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--black)}
         .srv p{font-size:13px;color:var(--gray);line-height:1.6}
@@ -167,10 +203,24 @@
         .method-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
         .method-badge{padding:8px 16px;background:var(--accent-pale);border-radius:100px;font-size:12px;font-weight:600;color:var(--accent)}
 
+        /* ═══ SMALL WINS ═══ */
+        .wins-sec{background:linear-gradient(180deg,#fff 0%,#F0FDFA 100%);position:relative;overflow:hidden}
+        .wins-sec::before{content:'';position:absolute;left:-120px;top:40px;width:280px;height:280px;border-radius:50%;background:rgba(45,212,191,.12);filter:blur(2px)}
+        .wins-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;position:relative}
+        .win-card{background:rgba(255,255,255,.86);border:1px solid rgba(8,145,178,.08);border-radius:var(--r-lg);padding:26px 22px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease}
+        .win-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:rgba(45,212,191,.35)}
+        .win-num{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--accent-pale);color:var(--accent);font-weight:800;margin-bottom:18px}
+        .win-card h3{font-family:var(--heading-font);font-size:18px;line-height:1.25;margin-bottom:8px}
+        .win-card p{font-size:13px;color:var(--gray);line-height:1.65}
+        .win-line{height:3px;background:linear-gradient(90deg,#A7F3D0,#22D3EE);border-radius:99px;margin-top:22px;transform-origin:left;transform:scaleX(.35);transition:transform .7s ease}
+        .win-card:hover .win-line,.wins-grid.visible .win-line{transform:scaleX(1)}
+
         /* ═══ PHOTO BREAK ═══ */
         .photo-break{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:1200px;margin:0 auto;padding:0 40px}
-        .photo-break-item{border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#CCFBF1,#A5F3FC);box-shadow:var(--shadow-sm)}
-        .photo-break-item img{width:100%;height:100%;object-fit:cover}
+        .photo-break-item{border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#CCFBF1,#A5F3FC);box-shadow:var(--shadow-sm);transition:transform .45s ease,box-shadow .45s ease}
+        .photo-break-item:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+        .photo-break-item img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+        .photo-break-item:hover img{transform:scale(1.04)}
         .photo-break-item .ph-text{display:flex;align-items:center;justify-content:center;height:100%;font-size:13px;color:var(--accent);font-weight:600;opacity:.3;text-transform:uppercase;letter-spacing:.1em}
 
         /* ═══ PRICES ═══ */
@@ -184,12 +234,19 @@
         .price-note{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;padding:16px;background:var(--accent-pale);border-radius:var(--r)}
 
         /* ═══ TEAM ═══ */
+        .team-group{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:18px;margin-bottom:30px;overflow:hidden}
+        .team-group-img{border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,#CCFBF1,#A5F3FC)}
+        .team-group-img img{width:100%;height:100%;object-fit:cover}
+        .team-group-text{padding:12px 18px 12px 0}
+        .team-group-text h3{font-family:var(--heading-font);font-size:24px;line-height:1.25;margin-bottom:10px}
+        .team-group-text p{font-size:14px;color:var(--gray);line-height:1.75}
         .team-slider{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 16px}
         .team-slider::-webkit-scrollbar{display:none}
-        .tm{flex:0 0 240px;scroll-snap-align:start;transition:transform .2s}
-        .tm:hover{transform:translateY(-3px)}
+        .tm{flex:0 0 240px;scroll-snap-align:start;transition:transform .35s ease}
+        .tm:hover{transform:translateY(-6px)}
         .tm-avatar{width:240px;height:300px;background:linear-gradient(135deg,#0E7490,#14B8A6);display:flex;align-items:center;justify-content:center;margin-bottom:14px;border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
-        .tm-avatar img{width:100%;height:100%;object-fit:cover}
+        .tm-avatar img{width:100%;height:100%;object-fit:cover;transition:transform .65s ease}
+        .tm:hover .tm-avatar img{transform:scale(1.05)}
         .tm-initials{font-size:40px;font-weight:300;letter-spacing:.04em;color:rgba(255,255,255,.85)}
         .tm-name{font-size:13px;font-weight:700}
         .tm-spec{font-size:12px;color:var(--gray);margin-top:2px}
@@ -203,8 +260,8 @@
         /* ═══ REVIEWS ═══ */
         .reviews-sec{background:var(--warm-bg)}
         .rv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-        .rv{padding:28px;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-sm);transition:all .3s;border:1px solid transparent;position:relative}
-        .rv:hover{box-shadow:var(--shadow);border-color:var(--accent-light);transform:translateY(-2px)}
+        .rv{padding:28px;background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-sm);transition:all .35s ease;border:1px solid transparent;position:relative}
+        .rv:hover{box-shadow:var(--shadow);border-color:var(--accent-light);transform:translateY(-4px)}
         .rv::before{content:'\201C';position:absolute;top:14px;right:20px;font-size:44px;color:var(--accent);opacity:.12;font-family:Georgia,serif;line-height:1}
         .rv-stars{color:var(--accent);font-size:12px;letter-spacing:2px;margin-bottom:12px}
         .rv-text{font-size:13px;color:#555;line-height:1.75;margin-bottom:16px}
@@ -272,6 +329,8 @@
         body.high-contrast{--black:#000;--gray:#222;--gray-light:#555;--gray-bg:#eee;--accent:#0F2D6B}
         body.high-contrast .topbar{background:#0a3d4f}
         body.high-contrast .srv,body.high-contrast .rv,body.high-contrast .trust-card{border:2px solid #000}
+        body.high-contrast .hero{background:#fff!important}
+        body.high-contrast .hero h1{color:#000!important}
         body.high-contrast .hero-desc,body.high-contrast .about-text p,body.high-contrast .srv p{color:#222}
         body.wide-spacing{letter-spacing:.02em}
         body.wide-spacing p,body.wide-spacing li,body.wide-spacing .rv-text,body.wide-spacing .about-text p{line-height:2.2!important}
@@ -319,21 +378,38 @@
         .ck button:hover{background:var(--accent-hover)}
 
         /* ═══ ANIMATIONS ═══ */
-        .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease}
-        .fade-in.visible{opacity:1;transform:none}
+        .fade-in,.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+        .fade-left{transform:translateX(-28px)}
+        .fade-right{transform:translateX(28px)}
+        .fade-in.visible,.reveal.visible{opacity:1;transform:none}
+        .stagger>*{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+        .stagger.visible>*{opacity:1;transform:none}
+        .stagger.visible>*:nth-child(2){transition-delay:.06s}
+        .stagger.visible>*:nth-child(3){transition-delay:.12s}
+        .stagger.visible>*:nth-child(4){transition-delay:.18s}
+        .stagger.visible>*:nth-child(5){transition-delay:.24s}
+        .stagger.visible>*:nth-child(6){transition-delay:.3s}
+        .stagger.visible>*:nth-child(7){transition-delay:.36s}
+        .stagger.visible>*:nth-child(8){transition-delay:.42s}
+        .stagger.visible>*:nth-child(9){transition-delay:.48s}
+        .stagger.visible>*:nth-child(10){transition-delay:.54s}
+        .stagger.visible>*:nth-child(11){transition-delay:.6s}
+        .stagger.visible>*:nth-child(12){transition-delay:.66s}
+        @keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
         /* ═══ RESPONSIVE — TABLET ═══ */
         @media(max-width:1024px){
             .w{padding:0 24px}
             .topbar{display:none}
             header{top:0}
-            .h-inner{padding:0 24px;height:58px}
+            .h-inner{padding:0 24px;height:68px}
+            .logo img{height:44px}
             nav{display:none}
             .burger{display:flex}
-            .mobile-menu{top:58px}
-            .hero{padding:100px 0 60px}
-            .hero-inner{grid-template-columns:1fr;gap:32px}
-            .hero-img{max-height:300px}
+            .mobile-menu{top:68px}
+            .hero{padding:118px 0 52px}
+            .hero-inner{grid-template-columns:1fr;gap:28px}
+            .caps-wrap{min-height:440px;max-width:400px;margin:0 auto}
             .about-grid{grid-template-columns:1fr;gap:28px}
             .about-img{max-height:300px}
             .method{grid-template-columns:1fr;gap:28px}
@@ -351,13 +427,19 @@
             .transport-grid{grid-template-columns:1fr 1fr}
             .a11y-panel{right:12px;top:66px;width:260px}
             .diag-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
+            .wins-grid{grid-template-columns:repeat(2,1fr)}
+            .team-group{grid-template-columns:1fr;gap:18px}
+            .team-group-text{padding:0 6px 8px}
         }
 
         @media(max-width:768px){
             .w{padding:0 16px}
-            .h-inner{padding:0 16px;height:54px}
+            .h-inner{padding:0 16px;height:60px}
+            .logo img{height:38px}
             .logo-name{font-size:18px}
-            .hero{padding:80px 0 48px}
+            .hero{padding:96px 0 40px}
+            .caps-wrap{min-height:380px;gap:10px}
+            .caps-wrap .hero-cap-col.col-m{transform:translateY(-18px)}
             .hero-tag{font-size:11px;padding:6px 12px}
             h1{font-size:clamp(24px,6vw,30px);margin-bottom:14px}
             .hero-desc{font-size:14px;line-height:1.65;margin-bottom:20px}
@@ -401,12 +483,16 @@
             footer{padding:32px 0 16px}
             .ft-bottom{flex-direction:column;gap:6px;text-align:center;font-size:10px}
             .transport-grid{grid-template-columns:1fr}
-            .mobile-menu{top:54px;padding:16px}
+            .mobile-menu{top:60px;padding:16px}
             .a11y-panel{right:8px;left:8px;top:60px;width:auto;max-width:280px}
             .svc-modal{max-width:100%;border-radius:var(--r) var(--r) 0 0;max-height:85vh}
             .svc-modal-head{padding:28px 24px 0}
             .svc-modal-body{padding:16px 24px 28px}
             .appt-modal{padding:28px 20px}
+            .wins-grid{grid-template-columns:1fr}
+            .win-card{padding:22px 18px}
+            .team-group{padding:12px;border-radius:var(--r)}
+            .team-group-img{border-radius:16px}
         }
 
         @media(max-width:400px){
@@ -414,6 +500,11 @@
             .trust-card{display:flex;align-items:center;gap:12px;text-align:left;padding:14px}
             .trust-num{font-size:22px;margin-bottom:0;min-width:60px}
             .diag-grid{grid-template-columns:1fr}
+        }
+        @media(prefers-reduced-motion:reduce){
+            *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+            .fade-in,.reveal,.stagger>*{opacity:1!important;transform:none!important}
+            .hero-tag .dot{animation:none!important}
         }
     </style>
 </head>
@@ -481,13 +572,13 @@
 <section class="hero">
     <div class="w">
         <div class="hero-inner">
-            <div>
+            <div class="hero-copy">
                 <div class="hero-tag"><span class="dot"></span> Федеральная сеть с 1994 года</div>
                 <h1>Помогаем детям <span class="hl">заговорить</span>, освоить навыки и&nbsp;развиваться</h1>
                 <p class="hero-desc">Детское отделение неврологии и рефлексотерапии в&nbsp;Барнауле. Реабилитация при ДЦП, аутизме, задержках речи и&nbsp;развития по&nbsp;запатентованной методике, одобренной Минздравом&nbsp;РФ.</p>
                 <div class="hero-cta">
-                    <a href="#" class="btn btn--white" onclick="openAppt();return false">Записаться на приём</a>
-                    <a href="#services" class="btn btn--outline">Наши услуги</a>
+                    <a href="#" class="btn hero-btn-pri" onclick="openAppt();return false">Записаться на приём</a>
+                    <a href="#services" class="btn hero-btn-sec">Наши услуги</a>
                 </div>
                 <div class="hero-phones">
                     <a href="tel:+73852506146">+7 (3852) 50-61-46</a>
@@ -495,8 +586,46 @@
                     <small>Пн–Пт 08:00–20:00</small>
                 </div>
             </div>
-            <div class="hero-img">
-                <img src="img/hero.jpg" alt="Микротоковая рефлексотерапия — процедура в Реацентре Развитие">
+            <div class="caps-wrap" id="heroCaps" aria-hidden="true">
+                <div class="network-badge"><div class="nd">Р</div> Сеть «Реацентр» · 30 лет</div>
+                <span class="cap-deco d1"></span>
+                <span class="cap-deco d2"></span>
+                <span class="cap-deco d3"></span>
+                <span class="cap-deco d4"></span>
+                <span class="cap-deco d5"></span>
+                <div class="hero-cap-col col-l">
+                    <div class="caps c1 h-l">
+                        <img src="img/gan-06479.jpg" class="is-active" alt="">
+                        <img src="img/gan-06700.jpg" alt="">
+                        <img src="img/gan-06581.jpg" alt="">
+                    </div>
+                    <div class="caps c4 h-s">
+                        <img src="img/gan-06678.jpg" class="is-active" alt="">
+                        <img src="img/gan-06664.jpg" alt="">
+                    </div>
+                </div>
+                <div class="hero-cap-col col-m">
+                    <div class="caps c2 h-m">
+                        <img src="img/gan-06545.jpg" class="is-active" alt="">
+                        <img src="img/gan-06616.jpg" alt="">
+                        <img src="img/gan-06708.jpg" alt="">
+                    </div>
+                    <div class="caps c5 h-s">
+                        <img src="img/gan-06577.jpg" class="is-active" alt="">
+                        <img src="img/gan-06676.jpg" alt="">
+                    </div>
+                </div>
+                <div class="hero-cap-col col-r">
+                    <div class="caps c3 h-s">
+                        <img src="img/gan-06505.jpg" class="is-active" alt="">
+                        <img src="img/gan-06581.jpg" alt="">
+                    </div>
+                    <div class="caps c6 h-l">
+                        <img src="img/gan-06581.jpg" class="is-active" alt="">
+                        <img src="img/gan-06479.jpg" alt="">
+                        <img src="img/gan-06676.jpg" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -505,7 +634,7 @@
 <!-- ═══ TRUST BADGES ═══ -->
 <div class="trust-strip fade-in">
     <div class="w">
-        <div class="trust-row">
+        <div class="trust-row stagger">
             <div class="trust-card">
                 <div class="trust-num">30+</div>
                 <div class="trust-label">лет опыта<small>сеть работает с 1994 года</small></div>
@@ -533,10 +662,10 @@
             <h2>О <span class="hl">центре</span></h2>
         </div>
         <div class="about-grid">
-            <div class="about-img fade-in">
-                <img src="img/about.jpg" alt="Занятие с ребёнком в Реацентре Развитие">
+            <div class="about-img fade-in fade-left">
+                <img src="img/about-new.jpg" alt="Специалист Реацентра Развитие занимается с ребёнком">
             </div>
-            <div class="about-text fade-in">
+            <div class="about-text fade-in fade-right">
                 <h3>Часть федеральной сети «Реацентр»</h3>
                 <p>«Реацентр Развитие» — детское отделение неврологии и рефлексотерапии в Барнауле. Мы входим в федеральную сеть клиник «Реацентр», которая помогает детям с задержками развития с 1994 года.</p>
                 <p>В основе работы — микротоковая рефлексотерапия: запатентованная методика, одобренная Минздравом РФ. Она безболезненно восстанавливает нарушенные нервные связи и повышает эффективность всех занятий и процедур.</p>
@@ -551,12 +680,12 @@
 </section>
 
 <!-- ═══ PHOTO BREAK ═══ -->
-<div class="photo-break">
+<div class="photo-break stagger reveal">
     <div class="photo-break-item">
-        <img src="img/photo-1.jpg" alt="Специалист занимается с ребёнком">
+        <img src="img/photo-1-new.jpg" alt="Занятие ребёнка со специалистом Реацентра Развитие">
     </div>
     <div class="photo-break-item">
-        <img src="img/photo-2.jpg" alt="Оборудование для сенсорной интеграции">
+        <img src="img/photo-2-new.jpg" alt="Дружелюбная атмосфера детского центра">
     </div>
 </div>
 
@@ -567,7 +696,7 @@
             <h2>С чем мы <span class="hl">работаем</span></h2>
             <p>Помогаем детям с различными нарушениями нервной системы и задержками развития.</p>
         </div>
-        <div class="diag-grid fade-in">
+        <div class="diag-grid fade-in stagger">
             <div class="diag-card">
                 <h4>ДЦП</h4>
                 <p>Детский церебральный паралич</p>
@@ -619,7 +748,7 @@
             <h2>Наши <span class="hl">услуги</span></h2>
             <p>Комплексная реабилитация: от диагностики до индивидуальной программы лечения. Все специалисты — в одном центре.</p>
         </div>
-        <div class="srv-grid fade-in">
+        <div class="srv-grid fade-in stagger">
             <div class="srv srv-new" onclick="openSvc(8)">
                 <span class="srv-badge">Новое в Барнауле</span>
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
@@ -696,14 +825,50 @@
     </div>
 </section>
 
+<!-- ═══ SMALL WINS ═══ -->
+<section class="sec wins-sec">
+    <div class="w">
+        <div class="sec-head fade-in">
+            <h2>Путь к <span class="hl">маленьким победам</span></h2>
+            <p>Мы видим не только диагноз, а ребёнка и семью. Поэтому движение вперёд складывается из понятных, бережных шагов.</p>
+        </div>
+        <div class="wins-grid reveal stagger">
+            <div class="win-card">
+                <div class="win-num">1</div>
+                <h3>Сначала знакомимся</h3>
+                <p>Спокойно разбираемся в истории ребёнка, привычках, страхах и сильных сторонах.</p>
+                <div class="win-line"></div>
+            </div>
+            <div class="win-card">
+                <div class="win-num">2</div>
+                <h3>Собираем команду</h3>
+                <p>Невролог, психолог, логопед и массажист работают не по отдельности, а вокруг одной цели.</p>
+                <div class="win-line"></div>
+            </div>
+            <div class="win-card">
+                <div class="win-num">3</div>
+                <h3>Замечаем прогресс</h3>
+                <p>Первые звуки, спокойнее сон, новый навык или контакт глазами — всё это важные победы.</p>
+                <div class="win-line"></div>
+            </div>
+            <div class="win-card">
+                <div class="win-num">4</div>
+                <h3>Поддерживаем семью</h3>
+                <p>Объясняем, что происходит, и помогаем родителям продолжать результат дома.</p>
+                <div class="win-line"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ═══ METHODOLOGY ═══ -->
 <section class="sec" style="background:var(--gray-bg)">
     <div class="w">
         <div class="method">
-            <div class="method-img fade-in">
-                <img src="img/method.jpg" alt="Микротоковая рефлексотерапия — процедура МЭКС">
+            <div class="method-img fade-in fade-left">
+                <img src="img/method-new.jpg" alt="Микротоковая рефлексотерапия и работа специалиста">
             </div>
-            <div class="method-content fade-in">
+            <div class="method-content fade-in fade-right">
                 <h3>Микротоковая рефлексотерапия — основа реабилитации</h3>
                 <p>Уникальная медицинская технология, разработанная под руководством доктора медицинских наук Т. А. Гавриловой. Метод запатентован и одобрен Минздравом РФ.</p>
                 <p>Сверхмалые электрические импульсы воздействуют на биологически активные точки, восстанавливая нарушенные нервные связи. Процедура безболезненная и безопасная, особенно эффективна у детей до 10 лет.</p>
@@ -726,7 +891,7 @@
             <h2>Стоимость <span class="hl">услуг</span></h2>
             <p>Актуальные цены. Точную стоимость курса рассчитает врач после консультации.</p>
         </div>
-        <div class="price-grid fade-in">
+        <div class="price-grid fade-in stagger">
             <div>
                 <div class="price-col">
                     <h3>Консультации</h3>
@@ -785,12 +950,21 @@
                 <p>Врачи, педагоги и специалисты с опытом в реабилитации детей с особенностями развития.</p>
             </div>
             <div class="team-nav">
-                <span id="tCnt">1/7</span>
+                <span id="tCnt">1/12</span>
                 <button onclick="sTeam(-1)" aria-label="Назад">&#8592;</button>
                 <button onclick="sTeam(1)" aria-label="Вперёд">&#8594;</button>
             </div>
         </div>
-        <div class="team-slider" id="tSlider">
+        <div class="team-group fade-in">
+            <div class="team-group-img">
+                <img src="img/team-group.jpg" alt="Команда специалистов Реацентра Развитие">
+            </div>
+            <div class="team-group-text">
+                <h3>Одна команда вокруг ребёнка</h3>
+                <p>В центре работают врачи, педагоги, психологи, массажисты и администраторы. Каждый помогает семье пройти курс спокойнее: от первой записи до маленьких ежедневных побед.</p>
+            </div>
+        </div>
+        <div class="team-slider fade-in stagger" id="tSlider">
             <div class="tm">
                 <div class="tm-avatar"><img src="img/team-alagyan.jpg" alt="Алагян И. Г."></div>
                 <div class="tm-name">Алагян Инна Григорьевна</div>
@@ -799,7 +973,7 @@
                 <div class="tm-edu">АГМУ, педиатрия · Ординатура «Реавиз», рефлексотерапия</div>
             </div>
             <div class="tm">
-                <div class="tm-avatar"><img src="img/team-tekuteva.jpg" alt="Текутьева Н. А."></div>
+                <div class="tm-avatar"><img src="img/team-tekuteva-new.jpg" alt="Текутьева Н. А."></div>
                 <div class="tm-name">Текутьева Надежда Анатольевна</div>
                 <div class="tm-spec">Поведенческий невролог, к.м.н.</div>
                 <div class="tm-exp">стаж 24 года</div>
@@ -813,7 +987,7 @@
                 <div class="tm-edu">АГМУ, педиатрия · Рефлексотерапия</div>
             </div>
             <div class="tm">
-                <div class="tm-avatar"><img src="img/team-kiseleva.jpg" alt="Киселева Л. В."></div>
+                <div class="tm-avatar"><img src="img/team-kiseleva-new.jpg" alt="Киселева Л. В."></div>
                 <div class="tm-name">Киселева Лариса Валентиновна</div>
                 <div class="tm-spec">Детский психолог</div>
                 <div class="tm-exp"></div>
@@ -825,16 +999,46 @@
                 <div class="tm-exp"></div>
             </div>
             <div class="tm">
-                <div class="tm-avatar"><img src="img/team-katykin.jpg" alt="Катыкин И. И."></div>
+                <div class="tm-avatar"><img src="img/team-katykin-new.jpg" alt="Катыкин И. И."></div>
                 <div class="tm-name">Катыкин Игорь Игоревич</div>
                 <div class="tm-spec">Массажист, инструктор ЛФК</div>
                 <div class="tm-exp">стаж 17 лет</div>
                 <div class="tm-edu">Рубцовский мед. колледж · ЛФК, массаж</div>
             </div>
             <div class="tm">
-                <div class="tm-avatar"><img src="img/team-statsenko.jpg" alt="Стаценко А. А."></div>
+                <div class="tm-avatar"><img src="img/team-statsenko-new.jpg" alt="Стаценко А. А."></div>
                 <div class="tm-name">Стаценко Алла Анатольевна</div>
                 <div class="tm-spec">Администратор</div>
+                <div class="tm-exp"></div>
+            </div>
+            <div class="tm">
+                <div class="tm-avatar"><img src="img/team-polezhaeva.jpg" alt="Полежаева Е. Н."></div>
+                <div class="tm-name">Полежаева Елена Николаевна</div>
+                <div class="tm-spec">Детский психолог</div>
+                <div class="tm-exp"></div>
+            </div>
+            <div class="tm">
+                <div class="tm-avatar"><img src="img/team-ostrykh.jpg" alt="Острых С. С."></div>
+                <div class="tm-name">Острых Светлана Сергеевна</div>
+                <div class="tm-spec">Медицинская сестра по массажу</div>
+                <div class="tm-exp"></div>
+            </div>
+            <div class="tm">
+                <div class="tm-avatar"><img src="img/team-seredkina.jpg" alt="Серёдкина О. А."></div>
+                <div class="tm-name">Серёдкина Олеся Анатольевна</div>
+                <div class="tm-spec">Медицинская сестра</div>
+                <div class="tm-exp"></div>
+            </div>
+            <div class="tm">
+                <div class="tm-avatar"><img src="img/team-takova.jpg" alt="Такова Н. Ю."></div>
+                <div class="tm-name">Такова Наталья Юрьевна</div>
+                <div class="tm-spec">Заместитель директора</div>
+                <div class="tm-exp"></div>
+            </div>
+            <div class="tm">
+                <div class="tm-avatar"><img src="img/team-akimova.jpg" alt="Акимова Л. А."></div>
+                <div class="tm-name">Акимова Лариса Анатольевна</div>
+                <div class="tm-spec">Санитарка, фея чистоты</div>
                 <div class="tm-exp"></div>
             </div>
         </div>
@@ -1065,20 +1269,61 @@
 (function(){
     var hdr=document.getElementById('hdr');
     var tb=document.getElementById('topbar');
+    var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     window.addEventListener('scroll',function(){
         var y=window.scrollY;
         hdr.classList.toggle('scrolled',y>40);
         if(tb)tb.style.transform=y>40?'translateY(-100%)':'none';
     },{passive:true});
 
-    var obs=new IntersectionObserver(function(entries){
-        entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-    },{threshold:.12});
-    document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el)});
+    var animated=document.querySelectorAll('.fade-in,.reveal,.stagger');
+    if(reduceMotion){
+        animated.forEach(function(el){el.classList.add('visible')});
+    }else{
+        var obs=new IntersectionObserver(function(entries){
+            entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+        },{threshold:.12,rootMargin:'0px 0px -40px'});
+        animated.forEach(function(el){obs.observe(el)});
+    }
 
     if(!localStorage.getItem('rc_ck')){
         setTimeout(function(){document.getElementById('ckBar').classList.add('show')},1500);
     }
+})();
+
+(function(){
+    var wrap=document.getElementById('heroCaps');
+    if(!wrap)return;
+    var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!reduceMotion){
+        wrap.querySelectorAll('.caps').forEach(function(cap,idx){
+            var imgs=cap.querySelectorAll('img');
+            if(imgs.length<2)return;
+            var i=0;
+            setTimeout(function(){
+                setInterval(function(){
+                    imgs[i].classList.remove('is-active');
+                    i=(i+1)%imgs.length;
+                    imgs[i].classList.add('is-active');
+                },3800+idx*200);
+            },idx*600);
+        });
+    }
+    if(reduceMotion)return;
+    var colL=wrap.querySelector('.col-l');
+    var colM=wrap.querySelector('.col-m');
+    var colR=wrap.querySelector('.col-r');
+    var ticking=false;
+    function onScroll(){
+        var y=window.scrollY,k=Math.min(y,800);
+        if(colL)colL.style.transform='translateY('+(-k*0.08)+'px)';
+        if(colM)colM.style.transform='translateY('+(-30+k*0.1)+'px)';
+        if(colR)colR.style.transform='translateY('+(15-k*0.06)+'px)';
+        ticking=false;
+    }
+    window.addEventListener('scroll',function(){
+        if(!ticking){window.requestAnimationFrame(onScroll);ticking=true;}
+    },{passive:true});
 })();
 
 function toggleMenu(){
@@ -1090,10 +1335,14 @@ function toggleMenu(){
 
 function sTeam(d){
     var s=document.getElementById('tSlider');
-    s.scrollBy({left:d*260,behavior:'smooth'});
+    var card=s.querySelector('.tm');
+    var gap=parseFloat(getComputedStyle(s).gap)||16;
+    var step=card?card.getBoundingClientRect().width+gap:260;
+    s.scrollBy({left:d*step,behavior:'smooth'});
     setTimeout(function(){
-        var i=Math.round(s.scrollLeft/260)+1;
-        document.getElementById('tCnt').textContent=Math.min(i,7)+'/7';
+        var i=Math.round(s.scrollLeft/step)+1;
+        var total=s.querySelectorAll('.tm').length;
+        document.getElementById('tCnt').textContent=Math.min(i,total)+'/'+total;
     },350);
 }
 
@@ -1176,7 +1425,7 @@ if(localStorage.getItem('rc_ws')==='1')document.getElementById('spacingBtn').cla
 
 document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){
-        closeSvc();closeAppt();
+        closeSvc();
         document.getElementById('a11yPanel').classList.remove('open');
         a11yOpen=false;
         document.body.style.overflow='';

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reacenter22.ru/sitemap.xml

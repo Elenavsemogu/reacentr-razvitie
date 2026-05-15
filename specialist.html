@@ -4,56 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Специалист — Реацентр Развитие</title>
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <meta name="robots" content="noindex, nofollow">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
+        :root{--accent:#1D4CAA;--accent-dark:#0F2F70;--accent-pale:#EEF3FF;--gray:#64748B;--r:16px;--shadow:0 4px 20px rgba(15,47,112,.08);--shadow-sm:0 2px 10px rgba(15,47,112,.06)}
         html,body{-webkit-user-select:none;user-select:none}
-        body{font-family:'Inter',sans-serif;color:#2D3748;line-height:1.7;background:#F8FAFC;padding:32px 20px 80px}
-        .wrap{max-width:720px;margin:0 auto}
-        a{color:#1D4CAA}
-        h1{font-family:'Nunito',sans-serif;font-size:26px;margin-bottom:6px;color:#0F2F70}
-        .role{color:#0891B2;font-weight:600;font-size:14px;margin-bottom:24px}
-        .back{display:inline-flex;align-items:center;gap:6px;margin-bottom:28px;font-size:14px;font-weight:600;color:#1D4CAA;text-decoration:none}
-        .back:hover{opacity:.75}
-        .hero{display:flex;gap:24px;align-items:flex-start;margin-bottom:32px}
-        .hero img{width:140px;height:140px;border-radius:20px;object-fit:cover;object-position:center 42%;flex-shrink:0;box-shadow:0 8px 24px rgba(15,47,112,.12)}
-        .edu-block{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:24px;border:1px solid rgba(15,47,112,.08)}
-        .edu-block h2{font-family:'Nunito',sans-serif;font-size:16px;margin-bottom:14px;color:#0E7490}
-        .edu-row{display:flex;gap:10px;margin-bottom:8px;font-size:14px;line-height:1.55}
-        .edu-label{color:#718096;min-width:130px;flex-shrink:0;font-weight:500}
-        .docs h2{font-family:'Nunito',sans-serif;font-size:16px;margin-bottom:14px;color:#0E7490}
+        body{font-family:'Inter',sans-serif;color:#1E293B;line-height:1.7;background:#F8FAFC;padding-top:72px;min-height:100vh}
+        a{color:var(--accent);text-decoration:none}
+        /* ─── HEADER ─── */
+        .site-hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(29,76,170,.08);height:72px;display:flex;align-items:center;padding:0 32px;gap:16px}
+        .site-hdr img{height:32px}
+        .back{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--gray);transition:color .2s}
+        .back:hover{color:var(--accent)}
+        .back svg{opacity:.6}
+        .site-hdr-divider{width:1px;height:20px;background:rgba(0,0,0,.1);margin:0 8px}
+        /* ─── CONTENT ─── */
+        .wrap{max-width:740px;margin:0 auto;padding:40px 24px 80px}
+        /* ─── HERO CARD ─── */
+        .spec-hero{display:flex;gap:28px;align-items:flex-start;background:#fff;border-radius:var(--r);padding:28px;margin-bottom:20px;box-shadow:var(--shadow);border:1px solid rgba(29,76,170,.07)}
+        .spec-hero img{width:120px;height:120px;border-radius:16px;object-fit:cover;object-position:center 35%;flex-shrink:0;box-shadow:0 6px 20px rgba(15,47,112,.14)}
+        .spec-hero h1{font-family:'Geologica',sans-serif;font-size:22px;font-weight:800;color:var(--accent-dark);margin-bottom:4px;line-height:1.25}
+        .spec-role{color:var(--accent);font-weight:600;font-size:14px;display:block;margin-bottom:12px}
+        /* ─── SECTION CARDS ─── */
+        .card{background:#fff;border-radius:var(--r);padding:24px;margin-bottom:16px;box-shadow:var(--shadow-sm);border:1px solid rgba(29,76,170,.07)}
+        .card-title{font-family:'Geologica',sans-serif;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--accent-pale)}
+        .edu-row{display:flex;gap:12px;padding:8px 0;border-bottom:1px solid #F8FAFC;font-size:14px;line-height:1.5}
+        .edu-row:last-child{border:none;padding-bottom:0}
+        .edu-label{color:var(--gray);min-width:120px;flex-shrink:0;font-weight:500;font-size:13px}
+        /* ─── DOC BUTTONS ─── */
         .doc-list{display:flex;flex-direction:column;gap:10px}
-        .doc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 18px;background:#fff;border:1px solid rgba(15,47,112,.1);border-radius:12px;font-size:14px;font-weight:600;color:#2D3748;cursor:pointer;transition:all .2s;text-align:left}
-        .doc-btn:hover{border-color:#1D4CAA;color:#1D4CAA;box-shadow:0 4px 14px rgba(29,76,170,.1)}
-        .doc-btn span{color:#1D4CAA;font-size:12px}
-        .no-docs{color:#718096;font-size:14px;padding:16px 0}
-        .notice{margin-top:32px;padding:14px 18px;background:#FFFBEB;border-radius:12px;font-size:12px;color:#92400E;line-height:1.55}
-        .err{text-align:center;padding:60px 20px;color:#718096}
-        .pdf-modal{position:fixed;inset:0;z-index:9999;background:rgba(15,47,112,.75);display:none;align-items:center;justify-content:center;padding:16px}
+        .doc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 20px;background:var(--accent-pale);border:1.5px solid rgba(29,76,170,.18);border-radius:12px;font-size:14px;font-weight:600;color:var(--accent-dark);cursor:pointer;transition:all .2s;text-align:left;font-family:'Inter',sans-serif}
+        .doc-btn:hover{border-color:var(--accent);background:#E4ECFF;box-shadow:0 4px 14px rgba(29,76,170,.12);transform:translateY(-1px)}
+        .doc-btn-label{display:flex;align-items:center;gap:10px}
+        .doc-btn-label svg{color:var(--accent);opacity:.7;flex-shrink:0}
+        .doc-btn span.action{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.04em;flex-shrink:0;padding:4px 10px;background:#fff;border-radius:6px}
+        .no-docs{color:var(--gray);font-size:14px;padding:8px 0}
+        .notice{margin-top:8px;padding:14px 18px;background:#FFFBEB;border-radius:12px;font-size:12px;color:#92400E;line-height:1.55;border:1px solid #FDE68A}
+        .err{text-align:center;padding:60px 20px;color:var(--gray)}
+        /* ─── PDF MODAL ─── */
+        .pdf-modal{position:fixed;inset:0;z-index:9999;background:rgba(10,30,70,.8);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px}
         .pdf-modal.open{display:flex}
-        .pdf-box{background:#fff;border-radius:16px;width:min(920px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25)}
-        .pdf-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #E2E8F0;flex-shrink:0}
-        .pdf-toolbar h3{font-size:14px;font-weight:600;flex:1;padding-right:12px}
-        .pdf-toolbar button{background:#1D4CAA;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
-        .pdf-toolbar button:hover{background:#163d8a}
-        .pdf-scroll{overflow:auto;padding:16px;flex:1;-webkit-overflow-scrolling:touch}
-        .pdf-scroll canvas{display:block;margin:0 auto 16px;max-width:100%;height:auto!important;box-shadow:0 2px 8px rgba(0,0,0,.08)}
-        .pdf-loading{padding:40px;text-align:center;color:#718096}
+        .pdf-box{background:#fff;border-radius:20px;width:min(920px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 32px 72px rgba(0,0,0,.3)}
+        .pdf-toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #E2E8F0;flex-shrink:0}
+        .pdf-toolbar h3{font-family:'Geologica',sans-serif;font-size:15px;font-weight:700;flex:1;padding-right:12px;color:var(--accent-dark)}
+        .pdf-toolbar button{background:var(--accent);color:#fff;border:none;padding:9px 18px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;letter-spacing:.02em}
+        .pdf-toolbar button:hover{background:var(--accent-dark)}
+        .pdf-scroll{overflow:auto;padding:20px;flex:1;-webkit-overflow-scrolling:touch;background:#F8FAFC}
+        .pdf-scroll canvas{display:block;margin:0 auto 16px;max-width:100%;height:auto!important;box-shadow:0 2px 12px rgba(0,0,0,.1);border-radius:4px}
+        .pdf-loading{padding:60px;text-align:center;color:var(--gray)}
         @media print{body{display:none!important}}
         @media(max-width:560px){
-            .hero{flex-direction:column;align-items:center;text-align:center}
-            .hero img{width:120px;height:120px}
-            .edu-row{flex-direction:column;gap:2px}
+            .site-hdr{padding:0 16px}
+            .wrap{padding:24px 16px 60px}
+            .spec-hero{flex-direction:column;align-items:center;text-align:center;gap:16px}
+            .spec-hero img{width:100px;height:100px}
+            .edu-row{flex-direction:column;gap:3px}
             .edu-label{min-width:0}
         }
     </style>
 </head>
 <body>
+<header class="site-hdr">
+  <a href="index.html"><img src="img/logo.svg" alt="Реацентр Развитие"></a>
+  <div class="site-hdr-divider"></div>
+  <a href="index.html#team" class="back">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+    Все специалисты
+  </a>
+</header>
 <div class="wrap" id="page">
-    <a href="index.html#team" class="back">&larr; Все специалисты</a>
     <div id="content"></div>
 </div>
 <div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Просмотр документа">
@@ -104,23 +127,24 @@
 
     var docsHtml = '';
     if (spec.docs.length) {
-        docsHtml = '<div class="docs"><h2>Документы об образовании</h2><div class="doc-list">' +
+        var pdfIcon = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>';
+        docsHtml = '<div class="card"><p class="card-title">Документы об образовании</p><div class="doc-list">' +
             spec.docs.map(function (d) {
                 return '<button type="button" class="doc-btn" data-slug="' + slug + '" data-doc="' + d.id + '">' +
-                    d.title + '<span>Открыть</span></button>';
+                    '<span class="doc-btn-label">' + pdfIcon + d.title + '</span><span class="action">Открыть ↗</span></button>';
             }).join('') + '</div></div>';
     } else {
-        docsHtml = '<div class="docs"><h2>Документы об образовании</h2><p class="no-docs">Сканы документов пока не размещены. Сведения об образовании — в <a href="legal.html#specialists">правовой информации</a>.</p></div>';
+        docsHtml = '<div class="card"><p class="card-title">Документы об образовании</p><p class="no-docs">Сканы документов пока не размещены. Сведения об образовании — в <a href="legal.html#specialists">правовой информации</a>.</p></div>';
     }
 
     content.innerHTML =
-        '<div class="hero">' +
+        '<div class="spec-hero">' +
             '<img src="' + spec.photo + '" alt="' + spec.name + '" draggable="false">' +
-            '<div><h1>' + spec.name + '</h1><p class="role">' + spec.role + '</p></div>' +
+            '<div><h1>' + spec.name + '</h1><span class="spec-role">' + spec.role + '</span></div>' +
         '</div>' +
-        '<div class="edu-block"><h2>Сведения об образовании</h2>' + eduHtml + '</div>' +
+        '<div class="card"><p class="card-title">Образование</p>' + eduHtml + '</div>' +
         docsHtml +
-        '<div class="notice">Документы предназначены только для ознакомления на сайте. Копирование, скачивание и печать ограничены.</div>';
+        '<div class="notice">Документы предназначены только для просмотра. Копирование, скачивание и печать ограничены.</div>';
 
     var modal = document.getElementById('pdfModal');
     var pdfScroll = document.getElementById('pdfScroll');

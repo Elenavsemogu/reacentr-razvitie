@@ -1,259 +1,149 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Правовая информация — Реацентр Развитие</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Inter',sans-serif;color:#2D3748;line-height:1.8;background:#fff;padding:40px 20px 80px}
-        .wrap{max-width:800px;margin:0 auto}
-        a{color:#0891B2}
-        h1{font-family:'Nunito',sans-serif;font-size:28px;margin-bottom:8px;line-height:1.3}
-        .sub{color:#718096;font-size:14px;margin-bottom:40px}
-        h2{font-family:'Nunito',sans-serif;font-size:18px;margin:36px 0 16px;color:#0E7490}
-        p,ul,ol{margin-bottom:16px;font-size:15px}
-        ul,ol{padding-left:24px}
-        li{margin-bottom:6px}
-        .back{display:inline-flex;align-items:center;gap:6px;margin-bottom:32px;font-size:14px;font-weight:600;color:#0891B2;text-decoration:none}
-        .back:hover{opacity:.7}
-        .info-block{background:#F7FAFC;border-radius:12px;padding:20px 24px;margin-bottom:12px}
-        .info-block h3{font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px;color:#718096}
-        .info-block .val{font-weight:600;font-size:15px;color:#2D3748}
-        .info-block p{margin-bottom:2px;font-size:14px}
-        .license-link{display:inline-flex;align-items:center;gap:8px;margin-top:8px;padding:10px 20px;background:#ECFEFF;border:1px solid #A5F3FC;border-radius:10px;font-size:14px;font-weight:600;color:#0E7490;text-decoration:none;transition:all .2s}
-        .license-link:hover{background:#CFFAFE;opacity:1}
-        .spec-card{background:#F7FAFC;border-radius:12px;padding:24px;margin-bottom:16px}
-        .spec-card h3{font-family:'Nunito',sans-serif;font-size:17px;margin-bottom:4px;color:#2D3748}
-        .spec-card .spec-role{font-size:13px;color:#0891B2;font-weight:600;margin-bottom:12px}
-        .spec-card .spec-row{display:flex;gap:8px;margin-bottom:6px;font-size:14px;line-height:1.6}
-        .spec-card .spec-label{color:#718096;min-width:140px;flex-shrink:0;font-weight:500}
-        .spec-card .spec-val{color:#2D3748}
-        .spec-docs{margin-top:14px}
-        .spec-docs a{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#1D4CAA;text-decoration:none;padding:8px 14px;background:#ECFEFF;border-radius:8px;border:1px solid #A5F3FC}
-        .spec-docs a:hover{background:#CFFAFE}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Правовая информация — Реацентр Развитие</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0F172A;--gray:#475569;--gray-light:#94A3B8;--accent:#1D4CAA;--accent-dark:#0F2F70;--accent-pale:#EEF3FF;--r:16px;--shadow-sm:0 6px 20px rgba(29,76,170,.07)}
+body{font-family:'Inter',sans-serif;color:var(--black);background:#F8FAFC;line-height:1.65;padding-top:72px}
+a{color:var(--accent);text-decoration:none}
+.w{max-width:1100px;margin:0 auto;padding:0 24px}
+.site-hdr{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #E2E8F0}
+.site-hdr .w{display:flex;align-items:center;justify-content:space-between;height:64px}
+.site-hdr img{height:32px}
+.site-hdr nav a{font-size:14px;font-weight:500;color:var(--gray);margin-left:20px}
+.legal-hero{padding:40px 0 28px}
+.legal-hero h1{font-family:'Geologica',sans-serif;font-size:clamp(26px,4vw,36px);font-weight:800;color:var(--accent-dark);margin-bottom:8px}
+.legal-hero p{color:var(--gray);font-size:15px}
+.legal-nav{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.legal-nav a{padding:8px 18px;border-radius:100px;border:1.5px solid var(--accent);color:var(--accent);font-size:13px;font-weight:600}
+.legal-nav a:hover{background:var(--accent-pale)}
+.sec{margin-bottom:48px}
+.sec h2{font-family:'Geologica',sans-serif;font-size:22px;font-weight:800;color:var(--accent-dark);margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid var(--accent-pale)}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px}
+.info-block{background:#fff;border-radius:var(--r);padding:20px;border:1px solid #E2E8F0;box-shadow:var(--shadow-sm)}
+.info-block h3{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-light);margin-bottom:6px}
+.info-block .val{font-weight:600;font-size:15px}
+.info-block p{font-size:14px;color:var(--gray);margin-top:4px}
+.doc-tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.doc-tile{background:#fff;border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);border:1px solid #E2E8F0;display:flex;flex-direction:column;gap:12px}
+.doc-tile-icon{width:40px;height:40px;border-radius:10px;background:#FEF2F2;display:flex;align-items:center;justify-content:center;color:#DC2626}
+.doc-tile h3{font-size:15px;font-weight:700}
+.doc-tile p{font-size:13px;color:var(--gray)}
+.doc-tile .btn-open{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding:10px 18px;background:var(--accent-pale);border:1px solid var(--accent);border-radius:100px;font-size:13px;font-weight:600;color:var(--accent)}
+.spec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px}
+.spec-card{background:#fff;border-radius:var(--r);border:1px solid #E2E8F0;overflow:hidden;transition:box-shadow .2s}
+.spec-card:hover{box-shadow:0 4px 16px rgba(29,76,170,.1)}
+.spec-card-head{display:flex;align-items:center;gap:16px;padding:20px}
+.spec-avatar{width:52px;height:52px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.spec-name{display:block;font-family:'Geologica',sans-serif;font-size:15px;font-weight:600}
+.spec-role{display:block;font-size:13px;color:var(--accent);font-weight:600;margin-top:2px}
+.spec-edu{font-size:12px;color:var(--gray);margin-top:6px;line-height:1.5}
+
+
+.spec-docs-body{padding:0 20px 16px;display:flex;flex-wrap:wrap;gap:8px}
+.doc-chip{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:#FEF2F2;border:1px solid #FECACA;border-radius:100px;font-size:13px;color:#991b1b;font-weight:600}
+.doc-chip--empty{background:#F8FAFC;border-color:#E2E8F0;color:var(--gray-light);font-weight:500}
+.supervise{display:flex;flex-direction:column;gap:12px}
+.supervise-item{display:flex;gap:14px;background:#fff;border-radius:var(--r);padding:18px 20px;border:1px solid #E2E8F0}
+.supervise-item svg{flex-shrink:0;color:var(--accent);margin-top:2px}
+.supervise-item strong{display:block;font-size:14px;margin-bottom:4px}
+.supervise-item p{font-size:14px;color:var(--gray)}
+.legal-list{padding-left:20px;font-size:14px;color:var(--gray)}
+.legal-list li{margin-bottom:8px}
+footer{background:var(--accent-dark);color:rgba(255,255,255,.85);padding:32px 0;margin-top:56px}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px}
+.ft-bottom a{color:rgba(255,255,255,.75)}
+.ft-maker{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.75);font-size:13px}
+.ft-maker-logo{width:24px;height:24px;filter:brightness(10);opacity:.75}
+@media(max-width:640px){.spec-card-head{flex-wrap:wrap}}
+</style>
 </head>
 <body>
-<div class="wrap">
-    <a href="/" class="back">&larr; На главную</a>
+<header class="site-hdr">
+  <div class="w">
+    <a href="/"><img src="img/logo.svg" alt="Реацентр Развитие"></a>
+    <nav><a href="/">Главная</a><a href="/#contacts">Контакты</a><a href="privacy.html">Конфиденциальность</a></nav>
+  </div>
+</header>
+<main class="w">
+  <div class="legal-hero">
     <h1>Правовая информация</h1>
-    <div class="sub">Сведения о медицинской организации в соответствии с Приказом Минздрава РФ №956н</div>
-
+    <p>Сведения о медицинской организации (Приказ Минздрава РФ №956н)</p>
+  </div>
+  <nav class="legal-nav">
+    <a href="#requisites">Реквизиты</a>
+    <a href="#license">Лицензия</a>
+    <a href="#specialists">Специалисты</a>
+    <a href="#supervise">Надзорные органы</a>
+  </nav>
+  <section class="sec" id="requisites">
     <h2>Сведения об организации</h2>
-
-    <div class="info-block">
-        <h3>Полное наименование</h3>
-        <p class="val">Общество с ограниченной ответственностью «РАЗВИТИЕ»</p>
-        <p>Сокращённое: ООО «РАЗВИТИЕ»</p>
+    <div class="info-grid">
+      <div class="info-block"><h3>Наименование</h3><p class="val">ООО «РАЗВИТИЕ»</p></div>
+      <div class="info-block"><h3>Адрес</h3><p class="val">656037, г. Барнаул, пр-т Ленина, 146, пом. Н1</p></div>
+      <div class="info-block"><h3>Телефоны</h3><p class="val"><a href="tel:+73852506146">+7 (3852) 50-61-46</a></p></div>
+      <div class="info-block"><h3>Email</h3><p class="val"><a href="mailto:r.c.razvitie@mail.ru">r.c.razvitie@mail.ru</a></p></div>
+      <div class="info-block"><h3>Режим</h3><p class="val">Пн–Пт 08:00–20:00</p></div>
+      <div class="info-block"><h3>ОГРН / ИНН</h3><p class="val">1192225029952</p><p>ИНН 2221245235</p></div>
     </div>
-
-    <div class="info-block">
-        <h3>Адрес</h3>
-        <p class="val">656037, Алтайский край, г. Барнаул, пр-т Ленина, 146, пом. Н1</p>
+  </section>
+  <section class="sec" id="license">
+    <h2>Документы клиники</h2>
+    <div class="doc-tiles">
+      <div class="doc-tile">
+        <div class="doc-tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg></div>
+        <h3>Лицензия</h3>
+        <p>Л041-01151-22/00338209 от 26.12.2019</p>
+        <a href="docs/license.pdf" target="_blank" rel="noopener" class="btn-open">Открыть документ</a>
+      </div>
     </div>
-
-    <div class="info-block">
-        <h3>Телефоны</h3>
-        <p class="val"><a href="tel:+73852506146">+7 (3852) 50-61-46</a></p>
-        <p><a href="tel:+79237517742">+7 (923) 751-77-42</a></p>
+  </section>
+  <section class="sec" id="specialists">
+    <h2>Специалисты</h2>
+    <p style="font-size:14px;color:var(--gray);margin:-8px 0 20px">Нажмите «Документы» — откроются дипломы и сертификаты (защищённый просмотр).</p>
+    <div class="spec-grid" id="specGrid"></div>
+  </section>
+  <section class="sec" id="supervise">
+    <h2>Надзорные органы</h2>
+    <div class="supervise">
+      <div class="supervise-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><div><strong>Росздравнадзор</strong><p><a href="https://roszdravnadzor.gov.ru" target="_blank" rel="noopener">roszdravnadzor.gov.ru</a> · 8 800 200-00-54</p></div></div>
+      <div class="supervise-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg><div><strong>Роспотребнадзор</strong><p><a href="https://22.rospotrebnadzor.ru" target="_blank">22.rospotrebnadzor.ru</a></p></div></div>
+      <div class="supervise-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/></svg><div><strong>Минздрав Алтайского края</strong><p><a href="https://minzdrav.alregn.ru" target="_blank">minzdrav.alregn.ru</a></p></div></div>
     </div>
+  </section>
+</main>
+<footer><div class="w ft-bottom"><span>&copy; 2024–2026 Реацентр Развитие</span><a href="https://papina.team" target="_blank" rel="noopener" class="ft-maker"><img src="img/papina-icon.svg" alt="" class="ft-maker-logo"><span>Сайт: <strong>ПАПИНА конструкторская</strong></span></a></div></footer>
+<script>
+var SPECS=[
+{id:'permyakova',name:'Пермякова Алёна Михайловна',role:'Директор, учредитель',img:'team-permyakova.jpg',docs:0},
+{id:'alagyan',name:'Алагян Инна Григорьевна',role:'Заведующая, невролог',img:'team-alagyan.jpg',docs:1,edu:'АГМУ, педиатрия (2002)'},
+{id:'takova',name:'Такова Наталья Юрьевна',role:'Зам. директора',img:'team-takova.jpg',docs:0},
+{id:'tekuteva',name:'Текутьева Надежда Анатольевна',role:'Поведенческий невролог, к.м.н.',img:'team-tekuteva-new.jpg',docs:1},
+{id:'batareeva',name:'Батареева Анжелика Николаевна',role:'Педиатр, рефлексотерапевт',img:'team-batareeva.jpg',docs:1},
+{id:'kiseleva',name:'Киселева Лариса Валентиновна',role:'Психолог',img:'team-kiseleva-new.jpg',docs:1},
+{id:'polezhaeva',name:'Полежаева Елена Николаевна',role:'Психолог',img:'team-polezhaeva.jpg',docs:1},
+{id:'chuprina',name:'Чуприна Елена Сергеевна',role:'Логопед',img:'team-chuprina.jpg',docs:1},
+{id:'katykin',name:'Катыкин Игорь Игоревич',role:'Массажист, ЛФК',img:'team-katykin-new.jpg',docs:1},
+{id:'statsenko',name:'Стаценко Алла Анатольевна',role:'Администратор',img:'team-statsenko-new.jpg',docs:0},
+{id:'ostrykh',name:'Острых Светлана Сергеевна',role:'Медсестра по массажу',img:'team-ostrykh.jpg',docs:1},
+{id:'seredkina',name:'Серёдкина Олеся Анатольевна',role:'Медсестра',img:'team-seredkina.jpg',docs:1},
+{id:'akimova',name:'Акимова Лариса Анатольевна',role:'Санитарка',img:'team-akimova.jpg',docs:0}
+];
+var pdf='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>';
+document.getElementById('specGrid').innerHTML=SPECS.map(function(s){
+  var edu=s.edu?'<p class="spec-edu">'+s.edu+'</p>':'';
+  var body=s.docs?'<a href="specialist.html?id='+s.id+'" class="doc-chip">'+pdf+' Дипломы и сертификаты</a>':'<span class="doc-chip doc-chip--empty">Документы на оформлении</span>';
+  var aid=s.id==='alagyan'?' id="alagyan"':'';
+  return '<div class="spec-card"'+aid+'><div class="spec-card-head"><img src="img/'+s.img+'" class="spec-avatar" alt=""><div class="spec-card-info"><strong class="spec-name">'+s.name+'</strong><span class="spec-role">'+s.role+'</span>'+edu+'</div></div><div class="spec-docs-body">'+body+'</div></div>';
+}).join('');
 
-    <div class="info-block">
-        <h3>Email</h3>
-        <p class="val"><a href="mailto:r.c.razvitie@mail.ru">r.c.razvitie@mail.ru</a></p>
-    </div>
-
-    <div class="info-block">
-        <h3>Режим работы</h3>
-        <p class="val">Пн–Пт: 08:00–20:00</p>
-        <p>Сб–Вс: выходной</p>
-    </div>
-
-    <div class="info-block">
-        <h3>ОГРН</h3>
-        <p class="val">1192225029952</p>
-    </div>
-
-    <div class="info-block">
-        <h3>ИНН / КПП</h3>
-        <p class="val">2221245235 / 222101001</p>
-    </div>
-
-    <div class="info-block">
-        <h3>Директор</h3>
-        <p class="val">Пермякова Алёна Михайловна</p>
-    </div>
-
-    <div class="info-block">
-        <h3>Учредитель</h3>
-        <p class="val">Пермякова Алёна Михайловна (единственный учредитель)</p>
-    </div>
-
-    <h2>Лицензия на осуществление медицинской деятельности</h2>
-
-    <div class="info-block">
-        <h3>Регистрационный номер</h3>
-        <p class="val">Л041-01151-22/00338209</p>
-        <p>Дата предоставления: 26.12.2019</p>
-        <p>Лицензирующий орган: Федеральная служба по надзору в сфере здравоохранения (Росздравнадзор)</p>
-        <p>Приказ №6929 от 29.07.2022</p>
-        <p>Статус: <strong style="color:#059669">действует</strong></p>
-        <a href="docs/license.pdf" target="_blank" class="license-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
-            Скачать копию лицензии (PDF)
-        </a>
-    </div>
-
-    <div class="info-block">
-        <h3>Виды медицинской деятельности</h3>
-        <p>Первичная доврачебная медико-санитарная помощь:</p>
-        <ul style="margin-top:4px">
-            <li>Лечебная физкультура</li>
-            <li>Медицинский массаж</li>
-            <li>Сестринское дело в педиатрии</li>
-        </ul>
-        <p>Первичная врачебная медико-санитарная помощь:</p>
-        <ul style="margin-top:4px">
-            <li>Педиатрия</li>
-        </ul>
-        <p>Первичная специализированная медико-санитарная помощь:</p>
-        <ul style="margin-top:4px">
-            <li>Лечебная физкультура</li>
-            <li>Неврология</li>
-            <li>Организация здравоохранения и общественному здоровью, эпидемиология</li>
-            <li>Ревматология</li>
-            <li>Рефлексотерапия</li>
-            <li>Спортивная медицина</li>
-            <li>Функциональная диагностика</li>
-        </ul>
-        <p>Медицинские экспертизы:</p>
-        <ul style="margin-top:4px">
-            <li>Экспертиза временной нетрудоспособности</li>
-        </ul>
-    </div>
-
-    <h2 id="specialists">Сведения о специалистах</h2>
-
-    <div class="spec-card" id="alagyan">
-        <h3>Алагян Инна Григорьевна</h3>
-        <div class="spec-role">Заведующая, детский невролог, рефлексотерапевт</div>
-        <div class="spec-row"><span class="spec-label">Образование</span><span class="spec-val">Алтайский государственный медицинский университет, 2002 г., «Педиатрия»</span></div>
-        <div class="spec-row"><span class="spec-label">Интернатура</span><span class="spec-val">АГМУ, 2005 г., «Педиатрия»</span></div>
-        <div class="spec-row"><span class="spec-label">Ординатура</span><span class="spec-val">Медицинский университет «Реавиз», 2015 г., «Рефлексотерапия»</span></div>
-        <div class="spec-row"><span class="spec-label">Повышение квалификации</span><span class="spec-val">Неврология (АГМУ, 2015); Микротоковая рефлексотерапия (2014); Неврология, Рефлексотерапия, Педиатрия (2025)</span></div>
-    
-        <p class="spec-docs"><a href="specialist.html?id=alagyan">Документы об образовании (защищённый просмотр)</a></p>
-    </div><div class="spec-card">
-        <h3>Текутьева Надежда Анатольевна</h3>
-        <div class="spec-role">Поведенческий невролог, к.м.н.</div>
-        <div class="spec-row"><span class="spec-label">Образование</span><span class="spec-val">Алтайский государственный медицинский университет, 2001 г., «Лечебное дело»</span></div>
-        <div class="spec-row"><span class="spec-label">Интернатура</span><span class="spec-val">АГМУ, 2002 г., «Педиатрия»</span></div>
-        <div class="spec-row"><span class="spec-label">Учёная степень</span><span class="spec-val">Кандидат медицинских наук (2019)</span></div>
-        <div class="spec-row"><span class="spec-label">Повышение квалификации</span><span class="spec-val">Неврология (АГМУ, 2016, 2025); Неврология раннего детского возраста, Рефлексотерапия, Педиатрия (2020)</span></div>
-    
-        <p class="spec-docs"><a href="specialist.html?id=tekuteva">Документы об образовании (защищённый просмотр)</a></p>
-    </div><div class="spec-card">
-        <h3>Батареева Анжелика Николаевна</h3>
-        <div class="spec-role">Врач-педиатр, рефлексотерапевт</div>
-        <div class="spec-row"><span class="spec-label">Образование</span><span class="spec-val">Алтайский государственный медицинский университет, 1995 г., «Педиатрия»</span></div>
-        <div class="spec-row"><span class="spec-label">Интернатура</span><span class="spec-val">АГМУ, 2002 г., «Педиатрия»</span></div>
-        <div class="spec-row"><span class="spec-label">Повышение квалификации</span><span class="spec-val">Педиатрия (АГМУ, 2012, 2022); Рефлексотерапия (АГМУ, 2016, 2025); Микротоковая рефлексотерапия (2014)</span></div>
-    
-        <p class="spec-docs"><a href="specialist.html?id=batareeva">Документы об образовании (защищённый просмотр)</a></p>
-    </div><div class="spec-card">
-        <h3>Катыкин Игорь Игоревич</h3>
-        <div class="spec-role">Массажист, инструктор ЛФК</div>
-        <div class="spec-row"><span class="spec-label">Образование</span><span class="spec-val">Рубцовский медицинский колледж, 2009 г., «Сестринское дело»</span></div>
-        <div class="spec-row"><span class="spec-label">Переподготовка</span><span class="spec-val">Лечебная физкультура (РМК, 2011); Медицинский массаж (РМК, 2011)</span></div>
-        <div class="spec-row"><span class="spec-label">Повышение квалификации</span><span class="spec-val">Лечебная физкультура (2022, 2026); Медицинский массаж (2025)</span></div>
-    
-        <p class="spec-docs"><a href="specialist.html?id=katykin">Документы об образовании (защищённый просмотр)</a></p>
-    </div>
-<div class="spec-card">
-    <h3>Такова Наталья Юрьевна</h3>
-    <div class="spec-role">Заместитель директора</div>
-</div>
-
-<div class="spec-card">
-    <h3>Киселева Лариса Валентиновна</h3>
-    <div class="spec-role">Детский психолог</div>
-    <p class="spec-docs"><a href="specialist.html?id=kiseleva">Документы об образовании (защищённый просмотр)</a></p>
-</div>
-
-<div class="spec-card">
-    <h3>Полежаева Елена Николаевна</h3>
-    <div class="spec-role">Детский психолог</div>
-    <p class="spec-docs"><a href="specialist.html?id=polezhaeva">Документы об образовании (защищённый просмотр)</a></p>
-</div>
-
-<div class="spec-card">
-    <h3>Чуприна Елена Сергеевна</h3>
-    <div class="spec-role">Логопед</div>
-    <p class="spec-docs"><a href="specialist.html?id=chuprina">Документы об образовании (защищённый просмотр)</a></p>
-</div>
-
-<div class="spec-card">
-    <h3>Стаценко Алла Анатольевна</h3>
-    <div class="spec-role">Администратор</div>
-</div>
-
-<div class="spec-card">
-    <h3>Острых Светлана Сергеевна</h3>
-    <div class="spec-role">Медицинская сестра по массажу</div>
-    <p class="spec-docs"><a href="specialist.html?id=ostrykh">Документы об образовании (защищённый просмотр)</a></p>
-</div>
-
-<div class="spec-card">
-    <h3>Серёдкина Олеся Анатольевна</h3>
-    <div class="spec-role">Медицинская сестра</div>
-    <p class="spec-docs"><a href="specialist.html?id=seredkina">Документы об образовании (защищённый просмотр)</a></p>
-</div>
-
-<div class="spec-card">
-    <h3>Акимова Лариса Анатольевна</h3>
-    <div class="spec-role">Санитарка</div>
-</div>
-
-<div class="spec-card">
-    <h3>Пермякова Алёна Михайловна</h3>
-    <div class="spec-role">Директор, учредитель</div>
-</div>
-
-    <h2>Сайт федеральной сети</h2>
-    <p><a href="https://reacenter.ru/" target="_blank" rel="noopener">reacenter.ru</a> — официальный сайт сети клиник «Реацентр».</p>
-
-    <h2>Контакты надзорных органов</h2>
-    <div class="info-block">
-        <h3>Росздравнадзор</h3>
-        <p>Сайт: <a href="https://roszdravnadzor.gov.ru" target="_blank" rel="noopener">roszdravnadzor.gov.ru</a></p>
-        <p>Горячая линия: <a href="tel:88002000054">8 800 200-00-54</a> (бесплатно)</p>
-    </div>
-    <div class="info-block">
-        <h3>Роспотребнадзор по Алтайскому краю</h3>
-        <p>Сайт: <a href="https://22.rospotrebnadzor.ru" target="_blank" rel="noopener">22.rospotrebnadzor.ru</a></p>
-        <p>Тел.: <a href="tel:+73852260056">+7 (3852) 26-00-56</a></p>
-    </div>
-    <div class="info-block">
-        <h3>Министерство здравоохранения Алтайского края</h3>
-        <p>Сайт: <a href="https://minzdrav.alregn.ru" target="_blank" rel="noopener">minzdrav.alregn.ru</a></p>
-        <p>Тел.: <a href="tel:+73852677204">+7 (3852) 67-72-04</a></p>
-    </div>
-
-    <h2>Нормативные документы</h2>
-    <ul>
-        <li>Федеральный закон от 21.11.2011 №323-ФЗ «Об основах охраны здоровья граждан в Российской Федерации»</li>
-        <li>Постановление Правительства РФ от 04.10.2012 №1006 «Об утверждении Правил предоставления медицинскими организациями платных медицинских услуг»</li>
-        <li>Федеральный закон от 27.07.2006 №152-ФЗ «О персональных данных»</li>
-    </ul>
-
-    <h2>Отказ от ответственности</h2>
-    <p>Информация на сайте не является публичной офертой и носит исключительно информационный характер. Имеются противопоказания, необходима консультация специалиста. Точную стоимость услуг уточняйте по телефону.</p>
-
-    <p style="margin-top:40px;color:#718096;font-size:13px">Дата последнего обновления: май 2026 г.</p>
-</div>
+</script>
 </body>
 </html>

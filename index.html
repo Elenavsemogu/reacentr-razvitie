@@ -7,6 +7,7 @@
     <meta name="description" content="Реацентр Развитие в Барнауле — реабилитация детей с ДЦП, аутизмом, задержками речи и развития. Микротоковая рефлексотерапия, логопедия, массаж, ЛФК. Тел: +7 (3852) 50-61-46">
     <meta name="keywords" content="реацентр барнаул, детский невролог барнаул, поведенческий невролог барнаул, сенсорная интеграция барнаул, микротоковая рефлексотерапия, лечение дцп, лечение аутизма, задержка речи, зпрр, зрр, сдвг, логопед барнаул, детский массаж барнаул">
     <link rel="canonical" href="https://reacenter22.ru/">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
     <meta property="og:title" content="Реацентр Развитие — Барнаул">
     <meta property="og:description" content="Детское отделение неврологии и рефлексотерапии. Помогаем детям с задержками развития с 1994 года.">
     <meta property="og:type" content="website">
@@ -102,8 +103,8 @@
                 linear-gradient(165deg,var(--net-brand-pale) 0%,#E3F2FD 42%,#D7ECFA 100%)}
         .hero::before{content:'';position:absolute;inset:0;pointer-events:none;opacity:.35;
             background-image:radial-gradient(circle,rgba(29,76,170,.12) 1px,transparent 1.35px);background-size:22px 22px}
-        .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start;position:relative;z-index:1}
-        .hero-copy{padding-top:6px}
+        .hero-inner{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:start;position:relative;z-index:1;min-height:620px}
+        .hero-copy{padding-top:6px;position:sticky;top:100px;align-self:start}
         .hero-tag{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;background:rgba(255,255,255,.72);border:1px solid rgba(14,165,233,.22);backdrop-filter:blur(8px);border-radius:100px;font-size:11px;font-weight:600;color:var(--net-brand-deep);letter-spacing:.10em;text-transform:uppercase;margin-bottom:22px;width:fit-content;box-shadow:0 4px 14px rgba(14,165,233,.08)}
         .hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--net-sky);box-shadow:0 0 0 3px rgba(14,165,233,.25);animation:heroPulse 2s ease-in-out infinite}
         @keyframes heroPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(1.35)}}
@@ -223,14 +224,20 @@
         .photo-break-item .ph-text{display:flex;align-items:center;justify-content:center;height:100%;font-size:13px;color:var(--accent);font-weight:600;opacity:.3;text-transform:uppercase;letter-spacing:.1em}
 
         /* ═══ PRICES ═══ */
-        .price-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
-        .price-col{background:var(--white);border-radius:var(--r);padding:28px;box-shadow:var(--shadow-sm);margin-bottom:16px}
-        .price-col h3{font-size:14px;font-weight:700;letter-spacing:.01em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--accent-pale);color:var(--accent)}
-        .pr{display:flex;justify-content:space-between;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--gray-bg)}
+        .price-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+        .price-tab{padding:10px 22px;border-radius:100px;border:1.5px solid rgba(29,76,170,.25);color:var(--gray);font-size:13px;font-weight:600;cursor:pointer;background:var(--white);font-family:inherit;transition:all .2s;box-shadow:none}
+        .price-tab:hover{border-color:var(--accent);color:var(--accent)}
+        .price-tab.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 4px 14px rgba(29,76,170,.2)}
+        .price-panel{display:none}
+        .price-panel.active{display:block}
+        .price-table{background:var(--white);border-radius:var(--r);box-shadow:var(--shadow-sm);border:1px solid #E8EFF8;overflow:hidden}
+        .pr{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 24px;border-bottom:1px solid #F8FAFC}
         .pr:last-child{border-bottom:none}
-        .pr .n{font-size:13px;color:#555}
-        .pr .v{font-size:13px;font-weight:700;white-space:nowrap;color:var(--black)}
-        .price-note{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;padding:16px;background:var(--accent-pale);border-radius:var(--r)}
+        .pr:nth-child(even){background:#FAFBFF}
+        .pr .n{font-size:14px;color:var(--black);flex:1;line-height:1.45}
+        .pr .v{font-size:14px;font-weight:700;white-space:nowrap;color:var(--accent)}
+        .pr .v.free{color:#16a34a}
+        .price-note{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;padding:16px 20px;background:var(--accent-pale);border-radius:var(--r)}
 
         /* ═══ TEAM ═══ */
         .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -300,18 +307,24 @@
         .map-label strong{color:var(--black);font-weight:700;display:block;margin-bottom:2px}
 
         /* ═══ FOOTER ═══ */
-        footer{background:var(--accent-dark);color:rgba(255,255,255,.4);padding:40px 0 24px}
+        footer{background:var(--accent-dark);color:rgba(255,255,255,.85);padding:40px 0 24px}
         .ft-grid{display:grid;grid-template-columns:2.5fr 1fr 1fr 1fr;gap:28px;margin-bottom:32px}
         .ft-brand{font-size:18px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-light);margin-bottom:8px}
         footer h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:12px}
         .ft-links{list-style:none}
         .ft-links li{margin-bottom:6px}
-        .ft-links a{font-size:12px;color:rgba(255,255,255,.4);transition:color .2s}
-        .ft-links a:hover{color:var(--accent-light)}
+        .ft-links a{font-size:12px;color:rgba(255,255,255,.75);transition:color .2s}
+        .ft-links a:hover{color:#fff}
         .ft-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:16px;display:flex;justify-content:space-between;font-size:11px}
-        .ft-bottom a{color:rgba(255,255,255,.4)}
-        .ft-disclaimer{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:10px;color:rgba(255,255,255,.2);line-height:1.6}
+        .ft-bottom{color:rgba(255,255,255,.8)}.ft-bottom a{color:rgba(255,255,255,.75)}
+        .ft-disclaimer{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06);font-size:10px;color:rgba(255,255,255,.7);line-height:1.6}
 
+
+        .ft-maker{display:inline-flex;align-items:center;gap:8px;transition:opacity .2s;text-decoration:none;opacity:.8}
+        .ft-maker:hover{opacity:1}
+        
+        .ft-maker-logo{width:32px;height:32px;opacity:.9;border-radius:8px;transition:opacity .2s}
+        .ft-maker:hover .ft-maker-logo{opacity:1}
         /* ═══ ACCESSIBILITY PANEL ═══ */
         .a11y-panel{position:fixed;top:116px;right:20px;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow-lg);padding:24px;z-index:200;display:none;width:270px;border:1px solid var(--gray-bg);animation:a11yIn .2s ease}
         .a11y-panel.open{display:block}
@@ -412,7 +425,7 @@
             .method{grid-template-columns:1fr;gap:28px}
             .method-img{max-height:300px}
             .srv-grid{grid-template-columns:1fr 1fr}
-            .price-grid{grid-template-columns:1fr}
+            .price-acc{grid-template-columns:1fr}.price-acc-item:not(.open) .price-acc-body{max-height:0}
             .trust-row{grid-template-columns:repeat(2,1fr);gap:16px}
             .rv-grid{grid-template-columns:1fr 1fr}
             .contacts-inner{grid-template-columns:1fr}
@@ -428,6 +441,7 @@
             .team-grid{grid-template-columns:repeat(3,1fr);gap:18px}
         }
 
+        @media(max-width:767px){.hero-copy{position:static}}
         @media(max-width:768px){
             .w{padding:0 16px}
             .h-inner{padding:0 16px;height:60px}
@@ -594,35 +608,35 @@
                 <span class="cap-deco d5"></span>
                 <div class="hero-cap-col col-l">
                     <div class="caps c1 h-l">
-                        <img src="img/gan-06479.jpg" class="is-active" alt="">
-                        <img src="img/gan-06700.jpg" alt="">
-                        <img src="img/gan-06581.jpg" alt="">
+                        <img src="img/gan-06479.jpg" srcset="img/gan-06479-800.jpg 800w, img/gan-06479.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06700.jpg" srcset="img/gan-06700-800.jpg 800w, img/gan-06700.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
+                        <img src="img/gan-06581.jpg" srcset="img/gan-06581-800.jpg 800w, img/gan-06581.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                     <div class="caps c4 h-s">
-                        <img src="img/gan-06678.jpg" class="is-active" alt="">
-                        <img src="img/gan-06664.jpg" alt="">
+                        <img src="img/gan-06678.jpg" srcset="img/gan-06678-800.jpg 800w, img/gan-06678.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06664.jpg" srcset="img/gan-06664-800.jpg 800w, img/gan-06664.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                 </div>
                 <div class="hero-cap-col col-m">
                     <div class="caps c2 h-m">
-                        <img src="img/gan-06545.jpg" class="is-active" alt="">
-                        <img src="img/gan-06616.jpg" alt="">
-                        <img src="img/gan-06708.jpg" alt="">
+                        <img src="img/gan-06545.jpg" srcset="img/gan-06545-800.jpg 800w, img/gan-06545.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06616.jpg" srcset="img/gan-06616-800.jpg 800w, img/gan-06616.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
+                        <img src="img/gan-06708.jpg" srcset="img/gan-06708-800.jpg 800w, img/gan-06708.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                     <div class="caps c5 h-s">
-                        <img src="img/gan-06577.jpg" class="is-active" alt="">
-                        <img src="img/gan-06676.jpg" alt="">
+                        <img src="img/gan-06577.jpg" srcset="img/gan-06577-800.jpg 800w, img/gan-06577.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06676.jpg" srcset="img/gan-06676-800.jpg 800w, img/gan-06676.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                 </div>
                 <div class="hero-cap-col col-r">
                     <div class="caps c3 h-s">
-                        <img src="img/gan-06505.jpg" class="is-active" alt="">
-                        <img src="img/gan-06581.jpg" alt="">
+                        <img src="img/gan-06505.jpg" srcset="img/gan-06505-800.jpg 800w, img/gan-06505.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06581.jpg" srcset="img/gan-06581-800.jpg 800w, img/gan-06581.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                     <div class="caps c6 h-l">
-                        <img src="img/gan-06581.jpg" class="is-active" alt="">
-                        <img src="img/gan-06479.jpg" alt="">
-                        <img src="img/gan-06676.jpg" alt="">
+                        <img src="img/gan-06581.jpg" srcset="img/gan-06581-800.jpg 800w, img/gan-06581.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" class="is-active" loading="eager">
+                        <img src="img/gan-06479.jpg" srcset="img/gan-06479-800.jpg 800w, img/gan-06479.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
+                        <img src="img/gan-06676.jpg" srcset="img/gan-06676-800.jpg 800w, img/gan-06676.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="" loading="eager">
                     </div>
                 </div>
             </div>
@@ -662,7 +676,7 @@
         </div>
         <div class="about-grid">
             <div class="about-img fade-in fade-left">
-                <img src="img/about-new.jpg" alt="Специалист Реацентра Развитие занимается с ребёнком">
+                <img src="img/about-new.jpg" srcset="img/about-new-800.jpg 800w, img/about-new.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="Специалист Реацентра Развитие занимается с ребёнком" loading="lazy">
             </div>
             <div class="about-text fade-in fade-right">
                 <h3>Часть федеральной сети «Реацентр»</h3>
@@ -681,10 +695,10 @@
 <!-- ═══ PHOTO BREAK ═══ -->
 <div class="photo-break stagger reveal">
     <div class="photo-break-item">
-        <img src="img/photo-1-new.jpg" alt="Занятие ребёнка со специалистом Реацентра Развитие">
+        <img src="img/photo-1-new.jpg" srcset="img/photo-1-new-800.jpg 800w, img/photo-1-new.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="Занятие ребёнка со специалистом" loading="lazy">
     </div>
     <div class="photo-break-item">
-        <img src="img/photo-2-new.jpg" alt="Дружелюбная атмосфера детского центра">
+        <img src="img/photo-2-new.jpg" srcset="img/photo-2-new-800.jpg 800w, img/photo-2-new.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="Дружелюбная атмосфера центра" loading="lazy">
     </div>
 </div>
 
@@ -858,7 +872,7 @@
     <div class="w">
         <div class="method">
             <div class="method-img fade-in fade-left">
-                <img src="img/method-procedure.jpg" alt="Микротоковая рефлексотерапия и работа специалиста">
+                <img src="img/method-procedure.jpg" srcset="img/method-procedure-800.jpg 800w, img/method-procedure.jpg 1600w" sizes="(max-width:768px) 100vw, 50vw" alt="Микротоковая рефлексотерапия" loading="lazy">
             </div>
             <div class="method-content fade-in fade-right">
                 <h3>Микротоковая рефлексотерапия — основа реабилитации</h3>
@@ -883,43 +897,49 @@
             <h2>Стоимость <span class="hl">услуг</span></h2>
             <p>Актуальные цены. Точную стоимость курса рассчитает врач после консультации.</p>
         </div>
-        <div class="price-grid fade-in stagger">
-            <div>
-                <div class="price-col">
-                    <h3>Консультации</h3>
+        <div class="fade-in">
+            <div class="price-tabs" role="tablist">
+                <button class="price-tab active" role="tab" data-tab="t1">Консультации</button>
+                <button class="price-tab" role="tab" data-tab="t2">Диагностика</button>
+                <button class="price-tab" role="tab" data-tab="t3">МТРТ</button>
+                <button class="price-tab" role="tab" data-tab="t4">Занятия и процедуры</button>
+            </div>
+            <div class="price-panel active" id="t1">
+                <div class="price-table">
                     <div class="pr"><span class="n">Консультация детского невролога</span><span class="v">1 700 ₽</span></div>
                     <div class="pr"><span class="n">Повторная консультация невролога</span><span class="v">1 500 ₽</span></div>
                     <div class="pr"><span class="n">Повторная консультация невролога (на курсе МТРТ)</span><span class="v">1 000 ₽</span></div>
-                    <div class="pr"><span class="n">Повторная консультация невролога (по результатам исследования)</span><span class="v">бесплатно</span></div>
+                    <div class="pr"><span class="n">Повторная консультация невролога (по результатам исследования)</span><span class="v free">бесплатно</span></div>
                     <div class="pr"><span class="n">Консультация поведенческого невролога (30 мин.)</span><span class="v">1 500 ₽</span></div>
                     <div class="pr"><span class="n">Консультация нейропсихолога (30 мин.)</span><span class="v">1 700 ₽</span></div>
                     <div class="pr"><span class="n">Диагностика нейропсихолога (90 мин.)</span><span class="v">3 000 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация логопеда (первичная)</span><span class="v">бесплатно</span></div>
+                    <div class="pr"><span class="n">Консультация логопеда (первичная)</span><span class="v free">бесплатно</span></div>
                     <div class="pr"><span class="n">Консультация логопеда (30 мин., платная)</span><span class="v">1 600 ₽</span></div>
                     <div class="pr"><span class="n">Консультация логопеда (60 мин.)</span><span class="v">2 200 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация психолога (первичная)</span><span class="v">бесплатно</span></div>
+                    <div class="pr"><span class="n">Консультация психолога (первичная)</span><span class="v free">бесплатно</span></div>
                     <div class="pr"><span class="n">Консультация психолога (30 мин., платная)</span><span class="v">1 600 ₽</span></div>
                     <div class="pr"><span class="n">Консультация психолога (60 мин.)</span><span class="v">2 200 ₽</span></div>
                     <div class="pr"><span class="n">Семейное консультирование (60 мин.)</span><span class="v">2 200 ₽</span></div>
                 </div>
-                <div class="price-col" style="margin-top:16px">
-                    <h3>Диагностика</h3>
+            </div>
+            <div class="price-panel" id="t2">
+                <div class="price-table">
                     <div class="pr"><span class="n">ЭЭГ</span><span class="v">1 200 ₽</span></div>
                     <div class="pr"><span class="n">Электропунктурное обследование («МЭКС»)</span><span class="v">1 100 ₽</span></div>
                 </div>
             </div>
-            <div>
-                <div class="price-col">
-                    <h3>Микротоковая рефлексотерапия</h3>
+            <div class="price-panel" id="t3">
+                <div class="price-table">
                     <div class="pr"><span class="n">1 сеанс (1-й курс)</span><span class="v">3 800 ₽</span></div>
-                    <div class="pr"><span class="n">1-й курс (15 сеансов)</span><span class="v">57 000 ₽</span></div>
+                    <div class="pr"><span class="n">Полный курс · 15 сеансов (1-й курс)</span><span class="v">57 000 ₽</span></div>
                     <div class="pr"><span class="n">1 сеанс (2-й курс)</span><span class="v">3 500 ₽</span></div>
-                    <div class="pr"><span class="n">2-й курс (15 сеансов)</span><span class="v">52 500 ₽</span></div>
+                    <div class="pr"><span class="n">Полный курс · 15 сеансов (2-й курс)</span><span class="v">52 500 ₽</span></div>
                     <div class="pr"><span class="n">1 сеанс (3-й курс)</span><span class="v">3 300 ₽</span></div>
-                    <div class="pr"><span class="n">3-й курс (15 сеансов)</span><span class="v">49 500 ₽</span></div>
+                    <div class="pr"><span class="n">Полный курс · 15 сеансов (3-й курс)</span><span class="v">49 500 ₽</span></div>
                 </div>
-                <div class="price-col" style="margin-top:16px">
-                    <h3>Занятия и процедуры</h3>
+            </div>
+            <div class="price-panel" id="t4">
+                <div class="price-table">
                     <div class="pr"><span class="n">Логопедическое занятие (30 мин.)</span><span class="v">1 200 ₽</span></div>
                     <div class="pr"><span class="n">Логопедическое занятие (60 мин.)</span><span class="v">1 800 ₽</span></div>
                     <div class="pr"><span class="n">Логопедический массаж (30 мин.)</span><span class="v">1 200 ₽</span></div>
@@ -1110,7 +1130,7 @@
     <div class="w"><div class="sec-head fade-in"><h2>Как нас <span class="hl">найти</span></h2><p>пр-т Ленина, 146, 1 этаж · Железнодорожный район, Барнаул, 656037</p></div></div>
     <div class="map-sec">
         <div class="map-fr">
-            <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%91%D0%B0%D1%80%D0%BD%D0%B0%D1%83%D0%BB%20%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%9B%D0%B5%D0%BD%D0%B8%D0%BD%D0%B0%20146&z=16" loading="lazy" title="Реацентр Развитие на карте"></iframe>
+            <iframe src="https://yandex.ru/map-widget/v1/?org=121812157898&z=17" loading="lazy" title="Реацентр Развитие на карте"></iframe>
             <div class="map-label"><strong>Реацентр Развитие</strong>пр-т Ленина, 146, 1 этаж · +7 (3852) 50-61-46 · Пн–Пт 08:00–20:00</div>
         </div>
     </div>
@@ -1223,11 +1243,11 @@
         </div>
         <div class="ft-bottom">
             <span>&copy; 2024–2026 Реацентр Развитие. Барнаул. Все права защищены. 0+</span>
-            <a href="https://papina.team" target="_blank">сайт от ПАПИНА</a>
+            <a href="https://papina.team" target="_blank" rel="noopener" class="ft-maker"><img src="img/papina-icon.svg" alt="ПАПИНА конструкторская" class="ft-maker-logo"></a>
         </div>
         <div class="ft-disclaimer">
-            Информация на сайте не является публичной офертой. Есть противопоказания, необходима консультация специалиста. Лицензия на осуществление медицинской деятельности: <a href="docs/license.pdf" target="_blank" style="color:rgba(255,255,255,.45);text-decoration:underline">Л041-01151-22/00338209</a> от 26.12.2019, Росздравнадзор. Информация о ценах носит справочный характер; точную стоимость уточняйте у администратора.
-            <a href="legal.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Правовая информация</a> · <a href="privacy.html" style="color:rgba(255,255,255,.45);text-decoration:underline">Политика конфиденциальности</a><br>
+            Информация на сайте не является публичной офертой. Есть противопоказания, необходима консультация специалиста. Лицензия на осуществление медицинской деятельности: <a href="docs/license.pdf" target="_blank" style="color:rgba(255,255,255,.75);text-decoration:underline">Л041-01151-22/00338209</a> от 26.12.2019, Росздравнадзор. Информация о ценах носит справочный характер; точную стоимость уточняйте у администратора.
+            <a href="legal.html" style="color:rgba(255,255,255,.75);text-decoration:underline">Правовая информация</a> · <a href="privacy.html" style="color:rgba(255,255,255,.75);text-decoration:underline">Политика конфиденциальности</a><br>
             ООО «РАЗВИТИЕ», ИНН 2221245235, ОГРН 1192225029952. Адрес: 656037, Алтайский край, г. Барнаул, пр-т Ленина, 146, пом. Н1. Входит в федеральную сеть клиник «Реацентр».
         </div>
     </div>
@@ -1437,6 +1457,18 @@ document.addEventListener('keydown',function(e){
         document.body.style.overflow='';
     }
 });
+
+(function initPriceTabs(){
+            document.querySelectorAll('.price-tab').forEach(function(tab){
+                tab.addEventListener('click',function(){
+                    document.querySelectorAll('.price-tab').forEach(function(t){t.classList.remove('active')});
+                    document.querySelectorAll('.price-panel').forEach(function(p){p.classList.remove('active')});
+                    tab.classList.add('active');
+                    var panel=document.getElementById(tab.dataset.tab);
+                    if(panel)panel.classList.add('active');
+                });
+            });
+        })();
 
 </script>
 

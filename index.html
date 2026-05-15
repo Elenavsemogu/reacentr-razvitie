@@ -234,10 +234,12 @@
 
         /* ═══ TEAM ═══ */
         .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-        .tcard{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 2px 12px rgba(15,47,112,.04);transition:all .35s cubic-bezier(.16,1,.3,1);border:1px solid rgba(15,47,112,.06);position:relative}
+        a.tcard{display:block;text-decoration:none;color:inherit;cursor:pointer}
+        .tcard{background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 2px 12px rgba(15,47,112,.04);transition:all .35s cubic-bezier(.16,1,.3,1);border:1px solid rgba(15,47,112,.06);position:relative;text-decoration:none;color:inherit;display:block}
+        a.tcard:focus-visible{outline:2px solid var(--net-brand);outline-offset:3px}
         .tcard:hover{transform:translateY(-6px);box-shadow:0 18px 38px -14px rgba(29,76,170,.16)}
         .tcard-img{aspect-ratio:1/1;background:linear-gradient(180deg,#F1F6FF 0%,#E5EEFB 100%);overflow:hidden;position:relative}
-        .tcard-img img{width:100%;height:100%;object-fit:cover;object-position:center 18%;transition:transform .6s ease}
+        .tcard-img img{width:100%;height:100%;object-fit:cover;object-position:center 42%;transition:transform .6s ease}
         .tcard:hover .tcard-img img{transform:scale(1.05)}
         .tcard-spec{position:absolute;top:auto;bottom:14px;left:14px;color:#fff;font-size:11px;font-weight:600;padding:5px 11px;border-radius:100px;letter-spacing:.02em;background:var(--net-brand);box-shadow:0 4px 12px rgba(29,76,170,.3)}
         .tcard-spec.sk{background:var(--net-sky)}
@@ -389,6 +391,7 @@
         .stagger.visible>*:nth-child(10){transition-delay:.54s}
         .stagger.visible>*:nth-child(11){transition-delay:.6s}
         .stagger.visible>*:nth-child(12){transition-delay:.66s}
+        .stagger.visible>*:nth-child(13){transition-delay:.72s}
         @keyframes softFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
         /* ═══ RESPONSIVE — TABLET ═══ */
@@ -535,6 +538,7 @@
             <a href="#about">О центре</a>
             <a href="#services">Услуги</a>
             <a href="#prices">Цены</a>
+            <a href="#team">Специалисты</a>
             <a href="#reviews">Отзывы</a>
             <a href="#contacts">Контакты</a>
         </nav>
@@ -744,15 +748,15 @@
             <p>Комплексная реабилитация: от диагностики до индивидуальной программы лечения. Все специалисты — в одном центре.</p>
         </div>
         <div class="srv-grid fade-in stagger">
-            <div class="srv srv-new" onclick="openSvc(8)">
+            <div class="srv srv-new" onclick="openSvc(7)">
                 <span class="srv-badge">Новое в Барнауле</span>
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                 <h3>Поведенческий невролог</h3>
                 <p>Находим неврологические причины нарушений поведения и подбираем лечение. Системный подход к СДВГ, агрессии, истерикам, нарушениям сна.</p>
-                <div class="price-tag">от 2 000 ₽</div>
+                <div class="price-tag">от 1 500 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
-            <div class="srv srv-new" onclick="openSvc(9)">
+            <div class="srv srv-new" onclick="openSvc(8)">
                 <span class="srv-badge">Новое в Барнауле</span>
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                 <h3>Сенсорная интеграция</h3>
@@ -764,56 +768,49 @@
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
                 <h3>Микротоковая рефлексотерапия</h3>
                 <p>Запатентованная методика восстановления нервных связей на аппарате «МЭКС». Безболезненно и эффективно.</p>
-                <div class="price-tag">от 4 200 ₽ / сеанс</div>
+                <div class="price-tag">от 3 800 ₽ / сеанс</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(1)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
                 <h3>Детская неврология</h3>
                 <p>Консультация невролога, диагностика, составление программы реабилитации с учётом особенностей ребёнка.</p>
-                <div class="price-tag">от 2 000 ₽</div>
+                <div class="price-tag">от 1 700 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(2)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></div>
                 <h3>Диагностика</h3>
-                <p>ЭЭГ, УЗДГ, АСВП, электропунктурное обследование на аппарате «МЭКС» — полная картина состояния нервной системы.</p>
-                <div class="price-tag">от 2 300 ₽</div>
+                <p>ЭЭГ и электропунктурное обследование на аппарате «МЭКС» — полная картина состояния нервной системы.</p>
+                <div class="price-tag">от 1 200 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(3)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
                 <h3>Логопедия и дефектология</h3>
                 <p>Запуск и развитие речи, логомассаж, занятия на аудиотренажёре, работа с нарушениями звукопроизношения.</p>
-                <div class="price-tag">от 900 ₽</div>
+                <div class="price-tag">от 1 200 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(4)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a5 5 0 015 5c0 2-1.5 3.5-3 4.5V14a2 2 0 01-2 2h-2"/><path d="M9 18h6"/><path d="M10 22h4"/><circle cx="12" cy="7" r="1.5" fill="currentColor"/></svg></div>
                 <h3>Психология и нейропсихология</h3>
-                <p>Консультации, тестирование, АВА-терапия, коррекция поведения и социальная адаптация ребёнка.</p>
-                <div class="price-tag">от 900 ₽</div>
+                <p>Консультации, тестирование, коррекция поведения и социальная адаптация ребёнка.</p>
+                <div class="price-tag">от 1 100 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(5)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M6 8H5a4 4 0 000 8h1"/><path d="M8 6h8v12H8z" rx="2"/></svg></div>
                 <h3>Лечебный массаж и ЛФК</h3>
                 <p>Массажисты с глубокой специализацией в детской неврологической реабилитации. Восстановление тонуса, моторики — с видимым результатом после первого курса.</p>
-                <div class="price-tag">от 650 ₽</div>
+                <div class="price-tag">от 1 200 ₽</div>
                 <div class="srv-arrow">→</div>
             </div>
             <div class="srv" onclick="openSvc(6)">
                 <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                 <h3>Биоакустическая коррекция</h3>
                 <p>Метод саморегуляции мозга с помощью звуковой обратной связи. Улучшает сон, снижает возбудимость.</p>
-                <div class="price-tag">от 1 200 ₽</div>
-                <div class="srv-arrow">→</div>
-            </div>
-            <div class="srv" onclick="openSvc(7)">
-                <div class="srv-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-                <h3>Речевая терапия (ВЧТ)</h3>
-                <p>Высокочастотная речевая терапия — стимуляция речевых зон мозга для запуска и развития речи.</p>
-                <div class="price-tag">от 2 200 ₽</div>
+                <div class="price-tag">от 1 100 ₽</motion.div>
                 <div class="srv-arrow">→</div>
             </div>
         </div>
@@ -890,45 +887,38 @@
             <div>
                 <div class="price-col">
                     <h3>Консультации</h3>
-                    <div class="pr"><span class="n">Консультация детского невролога</span><span class="v">2 000 ₽</span></div>
+                    <div class="pr"><span class="n">Консультация детского невролога</span><span class="v">1 700 ₽</span></div>
                     <div class="pr"><span class="n">Повторная (в течение 3 мес.)</span><span class="v">1 500 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация поведенческого невролога</span><span class="v">от 2 000 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация логопеда</span><span class="v">1 100 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация нейропсихолога</span><span class="v">2 700 ₽</span></div>
-                    <div class="pr"><span class="n">Консультация психолога</span><span class="v">3 000 ₽</span></div>
-                    <div class="pr"><span class="n">Тестирование на РАС</span><span class="v">1 600 ₽</span></div>
+                    <div class="pr"><span class="n">Консультация поведенческого невролога</span><span class="v">от 1 500 ₽</span></div>
+                    <div class="pr"><span class="n">Консультация логопеда</span><span class="v">от 1 600 ₽</span></div>
+                    <div class="pr"><span class="n">Консультация нейропсихолога</span><span class="v">1 700 ₽</span></div>
+                    <div class="pr"><span class="n">Консультация психолога</span><span class="v">от 1 600 ₽</span></div>
                 </div>
                 <div class="price-col" style="margin-top:16px">
                     <h3>Диагностика</h3>
-                    <div class="pr"><span class="n">ЭЭГ с компьютерной обработкой</span><span class="v">2 300 ₽</span></div>
-                    <div class="pr"><span class="n">ЭЭГ-мониторинг сна (до 1 часа)</span><span class="v">3 900 ₽</span></div>
-                    <div class="pr"><span class="n">ЭЭГ-мониторинг сна (до 2 часов)</span><span class="v">4 500 ₽</span></div>
-                    <div class="pr"><span class="n">УЗДГ сосудов шеи и мозга</span><span class="v">2 800 ₽</span></div>
-                    <div class="pr"><span class="n">АСВП</span><span class="v">2 500 ₽</span></div>
-                    <div class="pr"><span class="n">Обследование с прибором «МЭКС»</span><span class="v">3 600 ₽</span></div>
+                    <div class="pr"><span class="n">ЭЭГ с компьютерной обработкой</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">Обследование с прибором «МЭКС»</span><span class="v">1 100 ₽</span></div>
                 </div>
             </div>
             <div>
                 <div class="price-col">
                     <h3>Микротоковая рефлексотерапия</h3>
-                    <div class="pr"><span class="n">1 сеанс МТРТ (1-й курс)</span><span class="v">4 200 ₽</span></div>
-                    <div class="pr"><span class="n">Первый курс (15 сеансов)</span><span class="v">63 000 ₽</span></div>
+                    <div class="pr"><span class="n">1 сеанс МТРТ (1-й курс)</span><span class="v">3 800 ₽</span></div>
+                    <div class="pr"><span class="n">Первый курс (15 сеансов)</span><span class="v">57 000 ₽</span></div>
                     <div class="pr"><span class="n">Осмотр логопеда (по назначению)</span><span class="v">бесплатно</span></div>
                     <div class="pr"><span class="n">Консультация психолога (по назн.)</span><span class="v">бесплатно</span></div>
                 </div>
                 <div class="price-col" style="margin-top:16px">
                     <h3>Занятия и процедуры</h3>
-                    <div class="pr"><span class="n">Занятие с логопедом</span><span class="v">от 900 ₽</span></div>
-                    <div class="pr"><span class="n">Логопедический массаж</span><span class="v">1 300 ₽</span></div>
-                    <div class="pr"><span class="n">Нейропсихолог</span><span class="v">1 200 ₽</span></div>
-                    <div class="pr"><span class="n">Занятие с психологом</span><span class="v">900 ₽</span></div>
-                    <div class="pr"><span class="n">АВА-терапия</span><span class="v">1 700 ₽</span></div>
-                    <div class="pr"><span class="n">Сенсорная интеграция</span><span class="v">1 200 ₽</span></div>
-                    <div class="pr"><span class="n">ЛФК</span><span class="v">1 100 ₽</span></div>
-                    <div class="pr"><span class="n">Массаж спины (дети)</span><span class="v">800 ₽</span></div>
-                    <div class="pr"><span class="n">БАК (1 сеанс)</span><span class="v">1 200 ₽</span></div>
-                    <div class="pr"><span class="n">Курс БАК (10 сеансов)</span><span class="v">12 000 ₽</span></div>
-                    <div class="pr"><span class="n">ВЧТ (1 сеанс)</span><span class="v">2 200 ₽</span></div>
+                    <div class="pr"><span class="n">Занятие с логопедом (30 мин.)</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">Логопедический массаж</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">Занятие с нейропсихологом</span><span class="v">от 1 500 ₽</span></div>
+                    <div class="pr"><span class="n">Занятие с психологом (30 мин.)</span><span class="v">1 100 ₽</span></div>
+                    <div class="pr"><span class="n">Сенсорная интеграция (30 мин.)</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">ЛФК (30 мин.)</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">Массаж (30 мин.)</span><span class="v">1 200 ₽</span></div>
+                    <div class="pr"><span class="n">БАК (1 сеанс)</span><span class="v">1 100 ₽</span></div>
+                    <div class="pr"><span class="n">Курс БАК (10 сеансов)</span><span class="v">11 000 ₽</span></div>
                 </div>
             </div>
         </div>
@@ -941,106 +931,113 @@
     <div class="w">
         <div class="sec-head fade-in">
             <h2>Наши <span class="hl">специалисты</span></h2>
-            <p>12 врачей, педагогов и специалистов с опытом в реабилитации детей с особенностями развития. У каждого — действующие сертификаты и обучение по фирменной методике «Реацентр».</p>
+            <p>13 врачей, педагогов и специалистов с опытом в реабилитации детей с особенностями развития. У каждого — действующие сертификаты и обучение по фирменной методике «Реацентр».</p>
         </div>
         <div class="team-grid fade-in stagger">
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec">Невролог</span><img src="img/team-alagyan.jpg" alt="Алагян И. Г."></div>
+            <a class="tcard" href="specialist.html?id=permyakova">
+                <div class="tcard-img"><span class="tcard-spec">Директор</span><img src="img/team-permyakova.jpg" alt="Пермякова А. М."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Пермякова Алёна Михайловна</div>
+                    <div class="tcard-role">Директор, учредитель</div>
+                    <span class="tcard-link">Образование и сведения</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=alagyan">
+                <div class="tcard-img"><span class="tcard-spec sk">Невролог</span><img src="img/team-alagyan.jpg" alt="Алагян И. Г."></div>
                 <div class="tcard-body">
                     <div class="tcard-name">Алагян Инна Григорьевна</div>
                     <div class="tcard-role">Заведующая, детский невролог <small>· стаж 24 года</small></div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                    <span class="tcard-link">Образование и сертификаты</span>
                 </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec sk">Невролог</span><img src="img/team-tekuteva-new.jpg" alt="Текутьева Н. А."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Текутьева Надежда Анатольевна</div>
-                    <div class="tcard-role">Поведенческий невролог, к.м.н. <small>· стаж 24 года</small></div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec tl">Педиатр</span><img src="img/team-batareeva.jpg" alt="Батареева А. Н."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Батареева Анжелика Николаевна</div>
-                    <div class="tcard-role">Врач-педиатр, рефлексотерапевт <small>· стаж 31 год</small></div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec cy">Психолог</span><img src="img/team-kiseleva-new.jpg" alt="Киселева Л. В."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Киселева Лариса Валентиновна</div>
-                    <div class="tcard-role">Детский психолог</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec">Логопед</span><img src="img/team-chuprina.jpg" alt="Чуприна Е. С."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Чуприна Елена Сергеевна</div>
-                    <div class="tcard-role">Логопед</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec sk">Массажист</span><img src="img/team-katykin-new.jpg" alt="Катыкин И. И."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Катыкин Игорь Игоревич</div>
-                    <div class="tcard-role">Массажист, инструктор ЛФК <small>· стаж 17 лет</small></div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec tl">Администратор</span><img src="img/team-statsenko-new.jpg" alt="Стаценко А. А."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Стаценко Алла Анатольевна</div>
-                    <div class="tcard-role">Администратор</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec cy">Психолог</span><img src="img/team-polezhaeva.jpg" alt="Полежаева Е. Н."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Полежаева Елена Николаевна</div>
-                    <div class="tcard-role">Детский психолог</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec">Медсестра</span><img src="img/team-ostrykh.jpg" alt="Острых С. С."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Острых Светлана Сергеевна</div>
-                    <div class="tcard-role">Медицинская сестра по массажу</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec sk">Медсестра</span><img src="img/team-seredkina.jpg" alt="Серёдкина О. А."></div>
-                <div class="tcard-body">
-                    <div class="tcard-name">Серёдкина Олеся Анатольевна</div>
-                    <div class="tcard-role">Медицинская сестра</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
-                </div>
-            </div>
-            <div class="tcard">
+            </a>
+            <a class="tcard" href="specialist.html?id=takova">
                 <div class="tcard-img"><span class="tcard-spec tl">Зам. директора</span><img src="img/team-takova.jpg" alt="Такова Н. Ю."></div>
                 <div class="tcard-body">
                     <div class="tcard-name">Такова Наталья Юрьевна</div>
                     <div class="tcard-role">Заместитель директора</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                    <span class="tcard-link">Образование и сертификаты</span>
                 </div>
-            </div>
-            <div class="tcard">
-                <div class="tcard-img"><span class="tcard-spec cy">Санитарка</span><img src="img/team-akimova.jpg" alt="Акимова Л. А."></div>
+            </a>
+            <a class="tcard" href="specialist.html?id=tekuteva">
+                <div class="tcard-img"><span class="tcard-spec cy">Невролог</span><img src="img/team-tekuteva-new.jpg" alt="Текутьева Н. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Текутьева Надежда Анатольевна</div>
+                    <div class="tcard-role">Поведенческий невролог, к.м.н. <small>· стаж 24 года</small></div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=batareeva">
+                <div class="tcard-img"><span class="tcard-spec">Педиатр</span><img src="img/team-batareeva.jpg" alt="Батареева А. Н."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Батареева Анжелика Николаевна</div>
+                    <div class="tcard-role">Врач-педиатр, рефлексотерапевт <small>· стаж 31 год</small></div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=kiseleva">
+                <div class="tcard-img"><span class="tcard-spec sk">Психолог</span><img src="img/team-kiseleva-new.jpg" alt="Киселева Л. В."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Киселева Лариса Валентиновна</div>
+                    <div class="tcard-role">Детский психолог</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=polezhaeva">
+                <div class="tcard-img"><span class="tcard-spec tl">Психолог</span><img src="img/team-polezhaeva.jpg" alt="Полежаева Е. Н."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Полежаева Елена Николаевна</div>
+                    <div class="tcard-role">Детский психолог</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=chuprina">
+                <div class="tcard-img"><span class="tcard-spec cy">Логопед</span><img src="img/team-chuprina.jpg" alt="Чуприна Е. С."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Чуприна Елена Сергеевна</div>
+                    <div class="tcard-role">Логопед</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=katykin">
+                <div class="tcard-img"><span class="tcard-spec">Массажист</span><img src="img/team-katykin-new.jpg" alt="Катыкин И. И."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Катыкин Игорь Игоревич</div>
+                    <div class="tcard-role">Массажист, инструктор ЛФК <small>· стаж 17 лет</small></div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=statenko">
+                <div class="tcard-img"><span class="tcard-spec sk">Администратор</span><img src="img/team-statsenko-new.jpg" alt="Стаценко А. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Стаценко Алла Анатольевна</div>
+                    <div class="tcard-role">Администратор</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=ostrykh">
+                <div class="tcard-img"><span class="tcard-spec tl">Медсестра</span><img src="img/team-ostrykh.jpg" alt="Острых С. С."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Острых Светлана Сергеевна</div>
+                    <div class="tcard-role">Медицинская сестра по массажу</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=seredkina">
+                <div class="tcard-img"><span class="tcard-spec cy">Медсестра</span><img src="img/team-seredkina.jpg" alt="Серёдкина О. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Серёдкина Олеся Анатольевна</div>
+                    <div class="tcard-role">Медицинская сестра</div>
+                    <span class="tcard-link">Образование и сертификаты</span>
+                </div>
+            </a>
+            <a class="tcard" href="specialist.html?id=akimova">
+                <div class="tcard-img"><span class="tcard-spec">Санитарка</span><img src="img/team-akimova.jpg" alt="Акимова Л. А."></div>
                 <div class="tcard-body">
                     <div class="tcard-name">Акимова Лариса Анатольевна</div>
                     <div class="tcard-role">Санитарка, фея чистоты</div>
-                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                    <span class="tcard-link">Образование и сертификаты</span>
                 </div>
-            </div>
-        </div>
+            </a></div>
         <div style="text-align:center;margin-top:32px"><a href="legal.html#specialists" style="font-size:13px;color:var(--accent);font-weight:600">Образование и квалификация специалистов &rarr;</a></div>
     </div>
 </section>
@@ -1246,7 +1243,10 @@
 <div class="ck" id="ckBar">
     <h4>Cookie</h4>
     <p>Сайт использует cookie для корректной работы. <a href="privacy.html" style="color:var(--accent);text-decoration:underline">Политика конфиденциальности</a></p>
-    <button onclick="document.getElementById('ckBar').style.display='none';localStorage.setItem('rc_ck','1')">Хорошо</button>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+        <button onclick="document.getElementById('ckBar').style.display='none';localStorage.setItem('rc_ck','1')">Принять</button>
+        <button onclick="document.getElementById('ckBar').style.display='none';localStorage.setItem('rc_ck','reject')" style="background:transparent;color:var(--gray);border:1px solid currentColor;box-shadow:none">Отказаться</button>
+    </div>
 </div>
 
 <!-- Модалка записи убрана — все записи ведут в MAX -->
@@ -1337,23 +1337,22 @@ function openAppt(){window.open(maxLink,'_blank')}
 
 var services=[
 {title:'Микротоковая рефлексотерапия (МТРТ)',desc:'Запатентованная методика восстановления нервных связей, одобренная Минздравом РФ.',
- body:'<h4>Что это</h4><p>Уникальная медицинская технология: сверхмалые электрические импульсы воздействуют на биологически активные точки через аппарат «МЭКС». Процедура безболезненная и безопасная.</p><h4>Как работает</h4><p>Микротоки восстанавливают нарушенные нервные связи в головном мозге. Это повышает эффективность всех занятий с логопедом, психологом и другими специалистами.</p><h4>Для кого</h4><ul><li>Дети с ДЦП, аутизмом, ЗПРР, ЗРР, СДВГ</li><li>Дети с алалией, нейросенсорной тугоухостью</li><li>Особенно эффективно у детей до 10 лет</li></ul><h4>Курс</h4><ul><li>Первый курс — 15 сеансов</li><li>В первый курс входят бесплатные консультации логопеда и психолога</li></ul><div class="sm-price">Сеанс — от 4 200 ₽ · Курс (15 сеансов) — от 63 000 ₽</div>'},
+ body:'<h4>Что это</h4><p>Уникальная медицинская технология: сверхмалые электрические импульсы воздействуют на биологически активные точки через аппарат «МЭКС». Процедура безболезненная и безопасная.</p><h4>Как работает</h4><p>Микротоки восстанавливают нарушенные нервные связи в головном мозге. Это повышает эффективность всех занятий с логопедом, психологом и другими специалистами.</p><h4>Для кого</h4><ul><li>Дети с ДЦП, аутизмом, ЗПРР, ЗРР, СДВГ</li><li>Дети с алалией, нейросенсорной тугоухостью</li><li>Особенно эффективно у детей до 10 лет</li></ul><h4>Курс</h4><ul><li>Первый курс — 15 сеансов</li><li>В первый курс входят бесплатные консультации логопеда и психолога</li></ul><div class="sm-price">Сеанс — от 3 800 ₽ · Курс (15 сеансов) — от 57 000 ₽</div>'},
 {title:'Детская неврология',desc:'Консультация невролога, диагностика, составление индивидуальной программы реабилитации.',
- body:'<h4>Что входит</h4><ul><li>Осмотр детского невролога</li><li>Оценка неврологического статуса ребёнка</li><li>Электропунктурное обследование с прибором «МЭКС»</li><li>Подбор индивидуальной программы реабилитации</li></ul><h4>Когда обращаться</h4><ul><li>Ребёнок не говорит или отстаёт в речевом развитии</li><li>Поставлен диагноз ДЦП, РАС, ЗПРР</li><li>Есть проблемы с вниманием, поведением, обучением</li><li>Нарушения сна, повышенная возбудимость</li></ul><div class="sm-price">Первичная — 2 000 ₽ · Повторная — 1 500 ₽ · Обследование МЭКС — 3 600 ₽</div>'},
+ body:'<h4>Что входит</h4><ul><li>Осмотр детского невролога</li><li>Оценка неврологического статуса ребёнка</li><li>Электропунктурное обследование с прибором «МЭКС»</li><li>Подбор индивидуальной программы реабилитации</li></ul><h4>Когда обращаться</h4><ul><li>Ребёнок не говорит или отстаёт в речевом развитии</li><li>Поставлен диагноз ДЦП, РАС, ЗПРР</li><li>Есть проблемы с вниманием, поведением, обучением</li><li>Нарушения сна, повышенная возбудимость</li></ul><div class="sm-price">Первичная — 1 700 ₽ · Повторная — 1 500 ₽ · Обследование МЭКС — 1 100 ₽</div>'},
 {title:'Диагностика',desc:'Полный спектр функциональных исследований нервной системы ребёнка.',
- body:'<h4>Методы</h4><ul><li>ЭЭГ (электроэнцефалография) с компьютерной обработкой</li><li>ЭЭГ-мониторинг сна (1–3 часа)</li><li>УЗДГ — транскраниальная допплерография сосудов шеи и мозга</li><li>АСВП — акустические стволовые вызванные потенциалы</li><li>Электропунктурное обследование на аппарате «МЭКС»</li></ul><h4>Зачем</h4><p>Диагностика позволяет точно определить характер и степень нарушений, выявить причину задержки развития и подобрать эффективную программу лечения.</p><div class="sm-price">ЭЭГ — 2 300 ₽ · УЗДГ — 2 800 ₽ · АСВП — 2 500 ₽ · МЭКС — 3 600 ₽</div>'},
+ body:'<h4>Методы</h4><ul><li>ЭЭГ (электроэнцефалография) с компьютерной обработкой</li><li>Электропунктурное обследование на аппарате «МЭКС»</li></ul><h4>Зачем</h4><p>Диагностика позволяет точно определить характер и степень нарушений, выявить причину задержки развития и подобрать эффективную программу лечения.</p><div class="sm-price">ЭЭГ — 1 200 ₽ · МЭКС — 1 100 ₽</div>'},
 {title:'Логопедия и дефектология',desc:'Запуск и развитие речи, коррекция звукопроизношения, работа с нарушениями.',
- body:'<h4>Направления</h4><ul><li>Запуск речи у неговорящих детей</li><li>Логопедические занятия (дети с дизартрией, ОНР, алалией)</li><li>Логопедический массаж</li><li>Занятия на аудиотренажёре</li><li>Интерактивное зеркало и электронная песочница</li><li>Тренировка навыков жевания и глотания</li><li>Занятия с дефектологом</li></ul><h4>Результат</h4><p>Появление первых слов, расширение словарного запаса, улучшение произношения, формирование связной речи.</p><div class="sm-price">Занятие с логопедом — от 900 ₽ · Логомассаж — 1 300 ₽ · Аудиотренажёр — 1 100 ₽</div>'},
+ body:'<h4>Направления</h4><ul><li>Запуск речи у неговорящих детей</li><li>Логопедические занятия (дети с дизартрией, ОНР, алалией)</li><li>Логопедический массаж</li><li>Занятия на аудиотренажёре</li><li>Интерактивное зеркало и электронная песочница</li><li>Тренировка навыков жевания и глотания</li><li>Занятия с дефектологом</li></ul><h4>Результат</h4><p>Появление первых слов, расширение словарного запаса, улучшение произношения, формирование связной речи.</p><div class="sm-price">Занятие с логопедом — 1 200 ₽ · Логомассаж — 1 200 ₽ · Аудиотренажёр — 1 200 ₽</div>'},
 {title:'Психология и нейропсихология',desc:'Диагностика, коррекция поведения, развитие когнитивных навыков.',
- body:'<h4>Услуги</h4><ul><li>Консультация нейропсихолога (ЗПР, ЗПРР, РАС, СДВГ, дислексия)</li><li>Консультация психолога по детско-родительским отношениям</li><li>Тестирование на расстройства аутистического спектра (CASD, SCQ, M-CHAT-R)</li><li>АВА-терапия</li><li>Тренировка бытовых навыков</li><li>Занятия с психологом</li></ul><div class="sm-price">Нейропсихолог — 2 700 ₽ · Психолог — от 900 ₽ · АВА — 1 700 ₽</div>'},
+ body:'<h4>Услуги</h4><ul><li>Консультация нейропсихолога (ЗПР, ЗПРР, РАС, СДВГ, дислексия)</li><li>Консультация психолога по детско-родительским отношениям</li><li>Тестирование на расстройства аутистического спектра (CASD, SCQ, M-CHAT-R)</li><li>Тренировка бытовых навыков</li><li>Занятия с психологом</li></ul><div class="sm-price">Нейропсихолог — 1 700 ₽ · Психолог — от 1 100 ₽</div>'},
 {title:'Лечебный массаж и ЛФК',desc:'Массажисты с глубокой специализацией в детской неврологической реабилитации.',
- body:'<h4>Наши массажисты</h4><p>В команде «Реацентра Развитие» — массажисты с глубокой специализацией в детской неврологической реабилитации. Каждый сеанс подбирается индивидуально: снять спастику, нормализовать тонус, улучшить моторику. Родители отмечают видимый прогресс уже после первого курса.</p><h4>Виды процедур</h4><ul><li>Массаж воротниковой зоны</li><li>Массаж шейно-грудного отдела</li><li>Массаж спины, рук, ног</li><li>Лечебная физкультура (ЛФК)</li><li>Адаптивная кинезиотерапия</li></ul><h4>Для кого</h4><p>Дети с нарушениями мышечного тонуса, задержками моторного развития, ДЦП, последствиями перинатального поражения ЦНС. Массаж особенно эффективен в сочетании с микротоковой рефлексотерапией.</p><div class="sm-price">Массаж спины — 800 ₽ · ЛФК — 1 100 ₽ · Кинезиотерапия — 1 200 ₽</div>'},
+ body:'<h4>Наши массажисты</h4><p>В команде «Реацентра Развитие» — массажисты с глубокой специализацией в детской неврологической реабилитации. Каждый сеанс подбирается индивидуально: снять спастику, нормализовать тонус, улучшить моторику. Родители отмечают видимый прогресс уже после первого курса.</p><h4>Виды процедур</h4><ul><li>Массаж воротниковой зоны</li><li>Массаж шейно-грудного отдела</li><li>Массаж спины, рук, ног</li><li>Лечебная физкультура (ЛФК)</li><li>Адаптивная кинезиотерапия</li></ul><h4>Для кого</h4><p>Дети с нарушениями мышечного тонуса, задержками моторного развития, ДЦП, последствиями перинатального поражения ЦНС. Массаж особенно эффективен в сочетании с микротоковой рефлексотерапией.</p><div class="sm-price">Массаж — 1 200 ₽ · ЛФК — 1 200 ₽</div>'},
 {title:'Биоакустическая коррекция (БАК)',desc:'Аппаратный метод саморегуляции мозга с помощью звуковой обратной связи.',
- body:'<h4>Что это</h4><p>Мозг ребёнка «слышит» свою собственную активность в виде музыкоподобных звуков. Это запускает процесс саморегуляции — мозг начинает восстанавливать нарушенные функции.</p><h4>Результат</h4><ul><li>Улучшение сна</li><li>Снижение возбудимости и тревожности</li><li>Улучшение внимания и концентрации</li><li>Стабилизация эмоционального фона</li></ul><h4>Курс</h4><p>10 сеансов. Процедура длится 20–30 минут, безболезненна.</p><div class="sm-price">1 сеанс — 1 200 ₽ · Курс (10 сеансов) — 12 000 ₽</div>'},
-{title:'Высокочастотная речевая терапия (ВЧТ)',desc:'Аппаратная стимуляция речевых зон мозга для запуска и развития речи.',
- body:'<h4>Как работает</h4><p>Сеанс включает 2 этапа по 30 минут. Специальная высокочастотная стимуляция активирует речевые зоны коры головного мозга, ускоряя процесс формирования речи.</p><h4>Для кого</h4><ul><li>Дети с задержкой речевого развития</li><li>Дети с алалией</li><li>Дети с ЗПРР на фоне аутизма</li></ul><h4>Курс</h4><p>20–25 сеансов. Может проводиться в удалённом режиме.</p><div class="sm-price">1 сеанс — 2 200 ₽ · Курс (20 сеансов) — 44 000 ₽</div>'},
+ body:'<h4>Что это</h4><p>Мозг ребёнка «слышит» свою собственную активность в виде музыкоподобных звуков. Это запускает процесс саморегуляции — мозг начинает восстанавливать нарушенные функции.</p><h4>Результат</h4><ul><li>Улучшение сна</li><li>Снижение возбудимости и тревожности</li><li>Улучшение внимания и концентрации</li><li>Стабилизация эмоционального фона</li></ul><h4>Курс</h4><p>10 сеансов. Процедура длится 20–30 минут, безболезненна.</p><div class="sm-price">1 сеанс — 1 100 ₽ · Курс (10 сеансов) — 11 000 ₽</div>'},
+
 {title:'Поведенческий невролог',desc:'Диагностика и коррекция нарушений поведения у детей с неврологической основой. Впервые в Барнауле.',
- body:'<h4>Что это</h4><p>Поведенческая неврология — направление на стыке неврологии и психологии. Врач выявляет неврологические причины нарушений поведения и подбирает лечение, которое воздействует на причину, а не на симптомы.</p><h4>Когда нужен поведенческий невролог</h4><ul><li>Ребёнок агрессивен, часто истерит, не управляет эмоциями</li><li>Гиперактивность, невозможность сосредоточиться (СДВГ)</li><li>Нарушения сна: трудности с засыпанием, ночные пробуждения</li><li>Аутоагрессия, тревожность, навязчивые действия</li><li>Трудности адаптации в детском саду и школе</li></ul><h4>Как проходит приём</h4><p>Врач оценивает неврологический статус, анализирует поведение, назначает обследования (ЭЭГ, УЗДГ) и составляет индивидуальный план коррекции. При необходимости подключает логопеда, психолога, массажиста.</p><h4>Почему это важно</h4><p>За «плохим поведением» часто стоит неврологическая причина. Правильная диагностика — первый шаг к тому, чтобы помочь ребёнку и семье.</p><div class="sm-price">Консультация — от 2 000 ₽</div>'},
+ body:'<h4>Что это</h4><p>Поведенческая неврология — направление на стыке неврологии и психологии. Врач выявляет неврологические причины нарушений поведения и подбирает лечение, которое воздействует на причину, а не на симптомы.</p><h4>Когда нужен поведенческий невролог</h4><ul><li>Ребёнок агрессивен, часто истерит, не управляет эмоциями</li><li>Гиперактивность, невозможность сосредоточиться (СДВГ)</li><li>Нарушения сна: трудности с засыпанием, ночные пробуждения</li><li>Аутоагрессия, тревожность, навязчивые действия</li><li>Трудности адаптации в детском саду и школе</li></ul><h4>Как проходит приём</h4><p>Врач оценивает неврологический статус, анализирует поведение, назначает обследования (ЭЭГ, УЗДГ) и составляет индивидуальный план коррекции. При необходимости подключает логопеда, психолога, массажиста.</p><h4>Почему это важно</h4><p>За «плохим поведением» часто стоит неврологическая причина. Правильная диагностика — первый шаг к тому, чтобы помочь ребёнку и семье.</p><div class="sm-price">Консультация — от 1 500 ₽</div>'},
 {title:'Сенсорная интеграция',desc:'Метод развития способности мозга обрабатывать информацию от органов чувств. Впервые в Барнауле.',
  body:'<h4>Что это</h4><p>Сенсорная интеграция — метод, который помогает мозгу ребёнка правильно обрабатывать и объединять сигналы от органов чувств: зрения, слуха, осязания, вестибулярного аппарата, проприоцепции.</p><h4>Признаки нарушений сенсорной обработки</h4><ul><li>Ребёнок закрывает уши от обычных звуков</li><li>Не переносит определённые текстуры еды или одежды</li><li>Постоянно крутится, раскачивается, прыгает</li><li>Боится качелей, горок — или наоборот, ищет экстремальные ощущения</li><li>Неуклюжесть, трудности с координацией</li><li>Быстрая утомляемость, истерики в шумных местах</li></ul><h4>Как проходят занятия</h4><p>В специально оборудованном зале с качелями, гамаками, утяжелёнными одеялами, тактильными панелями. Ребёнок играет — а мозг учится обрабатывать сенсорную информацию правильно.</p><h4>Результат</h4><ul><li>Улучшение координации и моторики</li><li>Снижение тревожности и истерик</li><li>Нормализация поведения</li><li>Улучшение речи и внимания</li></ul><div class="sm-price">Занятие — 1 200 ₽</div>'}
 ];

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Специалист — Реацентр Развитие</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html,body{-webkit-user-select:none;user-select:none}
+        body{font-family:'Inter',sans-serif;color:#2D3748;line-height:1.7;background:#F8FAFC;padding:32px 20px 80px}
+        .wrap{max-width:720px;margin:0 auto}
+        a{color:#1D4CAA}
+        h1{font-family:'Nunito',sans-serif;font-size:26px;margin-bottom:6px;color:#0F2F70}
+        .role{color:#0891B2;font-weight:600;font-size:14px;margin-bottom:24px}
+        .back{display:inline-flex;align-items:center;gap:6px;margin-bottom:28px;font-size:14px;font-weight:600;color:#1D4CAA;text-decoration:none}
+        .back:hover{opacity:.75}
+        .hero{display:flex;gap:24px;align-items:flex-start;margin-bottom:32px}
+        .hero img{width:140px;height:140px;border-radius:20px;object-fit:cover;object-position:center 42%;flex-shrink:0;box-shadow:0 8px 24px rgba(15,47,112,.12)}
+        .edu-block{background:#fff;border-radius:16px;padding:20px 24px;margin-bottom:24px;border:1px solid rgba(15,47,112,.08)}
+        .edu-block h2{font-family:'Nunito',sans-serif;font-size:16px;margin-bottom:14px;color:#0E7490}
+        .edu-row{display:flex;gap:10px;margin-bottom:8px;font-size:14px;line-height:1.55}
+        .edu-label{color:#718096;min-width:130px;flex-shrink:0;font-weight:500}
+        .docs h2{font-family:'Nunito',sans-serif;font-size:16px;margin-bottom:14px;color:#0E7490}
+        .doc-list{display:flex;flex-direction:column;gap:10px}
+        .doc-btn{display:flex;align-items:center;justify-content:space-between;width:100%;padding:14px 18px;background:#fff;border:1px solid rgba(15,47,112,.1);border-radius:12px;font-size:14px;font-weight:600;color:#2D3748;cursor:pointer;transition:all .2s;text-align:left}
+        .doc-btn:hover{border-color:#1D4CAA;color:#1D4CAA;box-shadow:0 4px 14px rgba(29,76,170,.1)}
+        .doc-btn span{color:#1D4CAA;font-size:12px}
+        .no-docs{color:#718096;font-size:14px;padding:16px 0}
+        .notice{margin-top:32px;padding:14px 18px;background:#FFFBEB;border-radius:12px;font-size:12px;color:#92400E;line-height:1.55}
+        .err{text-align:center;padding:60px 20px;color:#718096}
+        .pdf-modal{position:fixed;inset:0;z-index:9999;background:rgba(15,47,112,.75);display:none;align-items:center;justify-content:center;padding:16px}
+        .pdf-modal.open{display:flex}
+        .pdf-box{background:#fff;border-radius:16px;width:min(920px,100%);max-height:92vh;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.25)}
+        .pdf-toolbar{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #E2E8F0;flex-shrink:0}
+        .pdf-toolbar h3{font-size:14px;font-weight:600;flex:1;padding-right:12px}
+        .pdf-toolbar button{background:#1D4CAA;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
+        .pdf-toolbar button:hover{background:#163d8a}
+        .pdf-scroll{overflow:auto;padding:16px;flex:1;-webkit-overflow-scrolling:touch}
+        .pdf-scroll canvas{display:block;margin:0 auto 16px;max-width:100%;height:auto!important;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+        .pdf-loading{padding:40px;text-align:center;color:#718096}
+        @media print{body{display:none!important}}
+        @media(max-width:560px){
+            .hero{flex-direction:column;align-items:center;text-align:center}
+            .hero img{width:120px;height:120px}
+            .edu-row{flex-direction:column;gap:2px}
+            .edu-label{min-width:0}
+        }
+    </style>
+</head>
+<body>
+<div class="wrap" id="page">
+    <a href="index.html#team" class="back">&larr; Все специалисты</a>
+    <div id="content"></div>
+</div>
+<div class="pdf-modal" id="pdfModal" role="dialog" aria-modal="true" aria-label="Просмотр документа">
+    <div class="pdf-box" onclick="event.stopPropagation()">
+        <div class="pdf-toolbar">
+            <h3 id="pdfTitle">Документ</h3>
+            <button type="button" id="pdfClose">Закрыть</button>
+        </div>
+        <div class="pdf-scroll" id="pdfScroll">
+            <div class="pdf-loading" id="pdfLoading">Загрузка документа…</div>
+        </div>
+    </div>
+</div>
+
+<script src="js/specialists-data.js"></script>
+<script src="js/pdf.min.js"></script>
+<script>
+(function () {
+    'use strict';
+    var params = new URLSearchParams(location.search);
+    var slug = params.get('id');
+    var content = document.getElementById('content');
+    var spec = slug && window.SPECIALISTS[slug];
+
+    document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
+    document.addEventListener('keydown', function (e) {
+        if ((e.ctrlKey || e.metaKey) && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P')) e.preventDefault();
+        if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 's' || e.key === 'S')) e.preventDefault();
+        if (e.key === 'PrintScreen') e.preventDefault();
+    });
+    document.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+    if (window.pdfjsLib) {
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/pdf.worker.min.js';
+    }
+
+    if (!spec) {
+        content.innerHTML = '<div class="err"><p>Специалист не найден.</p><p style="margin-top:12px"><a href="index.html#team">Вернуться к списку</a></p></div>';
+        document.title = 'Специалист не найден — Реацентр Развитие';
+        return;
+    }
+
+    document.title = spec.name + ' — Реацентр Развитие';
+
+    var eduHtml = spec.education.map(function (row) {
+        return '<div class="edu-row"><span class="edu-label">' + row[0] + '</span><span>' + row[1] + '</span></div>';
+    }).join('');
+
+    var docsHtml = '';
+    if (spec.docs.length) {
+        docsHtml = '<div class="docs"><h2>Документы об образовании</h2><div class="doc-list">' +
+            spec.docs.map(function (d) {
+                return '<button type="button" class="doc-btn" data-slug="' + slug + '" data-doc="' + d.id + '">' +
+                    d.title + '<span>Открыть</span></button>';
+            }).join('') + '</div></div>';
+    } else {
+        docsHtml = '<div class="docs"><h2>Документы об образовании</h2><p class="no-docs">Сканы документов пока не размещены. Сведения об образовании — в <a href="legal.html#specialists">правовой информации</a>.</p></div>';
+    }
+
+    content.innerHTML =
+        '<div class="hero">' +
+            '<img src="' + spec.photo + '" alt="' + spec.name + '" draggable="false">' +
+            '<div><h1>' + spec.name + '</h1><p class="role">' + spec.role + '</p></div>' +
+        '</div>' +
+        '<div class="edu-block"><h2>Сведения об образовании</h2>' + eduHtml + '</div>' +
+        docsHtml +
+        '<div class="notice">Документы предназначены только для ознакомления на сайте. Копирование, скачивание и печать ограничены.</div>';
+
+    var modal = document.getElementById('pdfModal');
+    var pdfScroll = document.getElementById('pdfScroll');
+    var pdfLoading = document.getElementById('pdfLoading');
+    var pdfTitle = document.getElementById('pdfTitle');
+
+    function closeModal() {
+        modal.classList.remove('open');
+        pdfScroll.querySelectorAll('canvas').forEach(function (c) { c.remove(); });
+        pdfLoading.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('pdfClose').addEventListener('click', closeModal);
+    modal.addEventListener('click', closeModal);
+
+    content.addEventListener('click', function (e) {
+        var btn = e.target.closest('.doc-btn');
+        if (!btn) return;
+        var s = btn.getAttribute('data-slug');
+        var docId = btn.getAttribute('data-doc');
+        var url = window.getSpecialistDocUrl(s, docId);
+        var docMeta = spec.docs.find(function (d) { return d.id === docId; });
+        if (!url || !docMeta) return;
+        openPdf(url, docMeta.title);
+    });
+
+    function openPdf(url, title) {
+        if (!window.pdfjsLib) {
+            alert('Просмотрщик PDF недоступен. Обновите страницу.');
+            return;
+        }
+        if (location.protocol === 'file:') {
+            alert('Для просмотра документов откройте сайт через веб-сервер (например, Live Preview), а не как файл с диска.');
+            return;
+        }
+        pdfTitle.textContent = title;
+        pdfScroll.querySelectorAll('canvas').forEach(function (c) { c.remove(); });
+        pdfLoading.textContent = 'Загрузка документа…';
+        pdfLoading.style.display = 'block';
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+
+        fetch(url)
+            .then(function (res) {
+                if (!res.ok) throw new Error('HTTP ' + res.status);
+                return res.arrayBuffer();
+            })
+            .then(function (data) {
+                return pdfjsLib.getDocument({ data: data }).promise;
+            })
+            .then(function (pdf) {
+                pdfLoading.style.display = 'none';
+                var chain = Promise.resolve();
+                for (var p = 1; p <= pdf.numPages; p++) {
+                    (function (pageNum) {
+                        chain = chain.then(function () {
+                            return pdf.getPage(pageNum).then(function (page) {
+                                var scale = Math.min(1.5, (pdfScroll.clientWidth - 32) / page.getViewport({ scale: 1 }).width);
+                                var viewport = page.getViewport({ scale: scale });
+                                var canvas = document.createElement('canvas');
+                                canvas.width = viewport.width;
+                                canvas.height = viewport.height;
+                                pdfScroll.appendChild(canvas);
+                                return page.render({ canvasContext: canvas.getContext('2d'), viewport: viewport }).promise;
+                            });
+                        });
+                    })(p);
+                }
+                return chain;
+            })
+            .catch(function () {
+                pdfLoading.style.display = 'block';
+                pdfLoading.textContent = 'Не удалось загрузить документ. Проверьте подключение к интернету и обновите страницу.';
+            });
+    }
+})();
+</script>
+</body>
+</html>

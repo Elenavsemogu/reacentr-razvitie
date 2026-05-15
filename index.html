@@ -233,28 +233,23 @@
         .price-note{margin-top:24px;font-size:13px;color:var(--gray);line-height:1.6;padding:16px;background:var(--accent-pale);border-radius:var(--r)}
 
         /* ═══ TEAM ═══ */
-        .team-group{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;background:var(--white);border-radius:var(--r-lg);box-shadow:var(--shadow);padding:18px;margin-bottom:30px;overflow:hidden}
-        .team-group-img{border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:linear-gradient(135deg,var(--net-brand-pale),#DBEAFE)}
-        .team-group-img img{width:100%;height:100%;object-fit:cover}
-        .team-group-text{padding:12px 18px 12px 0}
-        .team-group-text h3{font-family:var(--heading-font);font-size:24px;line-height:1.25;margin-bottom:10px}
-        .team-group-text p{font-size:14px;color:var(--gray);line-height:1.75}
-        .team-slider{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:4px 0 16px}
-        .team-slider::-webkit-scrollbar{display:none}
-        .tm{flex:0 0 240px;scroll-snap-align:start;transition:transform .35s ease}
-        .tm:hover{transform:translateY(-6px)}
-        .tm-avatar{width:240px;height:300px;background:linear-gradient(145deg,var(--net-brand),var(--net-brand-soft));display:flex;align-items:center;justify-content:center;margin-bottom:14px;border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
-        .tm-avatar img{width:100%;height:100%;object-fit:cover;transition:transform .65s ease}
-        .tm:hover .tm-avatar img{transform:scale(1.05)}
-        .tm-initials{font-size:40px;font-weight:300;letter-spacing:.04em;color:rgba(255,255,255,.85)}
-        .tm-name{font-size:13px;font-weight:700}
-        .tm-spec{font-size:12px;color:var(--gray);margin-top:2px}
-        .tm-exp{font-size:11px;color:var(--gray-light);margin-top:2px}
-        .tm-edu{font-size:10px;color:var(--gray);margin-top:4px;line-height:1.4}
-        .team-nav{display:flex;align-items:center;gap:12px;margin-top:24px}
-        .team-nav span{font-size:14px;font-weight:500;min-width:40px;color:var(--gray)}
-        .team-nav button{width:40px;height:40px;border:1.5px solid var(--gray-light);border-radius:var(--r);background:none;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all .25s;color:var(--black)}
-        .team-nav button:hover{border-color:var(--accent);background:var(--accent);color:#fff}
+        .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+        .tcard{background:var(--white);border-radius:22px;overflow:hidden;box-shadow:0 4px 18px rgba(15,47,112,.05);transition:all .35s cubic-bezier(.16,1,.3,1);border:1px solid rgba(15,47,112,.08);position:relative}
+        .tcard:hover{transform:translateY(-8px);box-shadow:0 24px 48px -16px rgba(29,76,170,.18)}
+        .tcard-img{aspect-ratio:3/4;background:var(--net-brand-pale);overflow:hidden;position:relative}
+        .tcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+        .tcard:hover .tcard-img img{transform:scale(1.05)}
+        .tcard-spec{position:absolute;top:14px;left:14px;color:#fff;font-size:11px;font-weight:600;padding:5px 11px;border-radius:100px;letter-spacing:.02em;background:var(--net-brand);box-shadow:0 4px 12px rgba(29,76,170,.3)}
+        .tcard-spec.sk{background:var(--net-sky)}
+        .tcard-spec.tl{background:#13B8A0}
+        .tcard-spec.cy{background:var(--net-cyan)}
+        .tcard-body{padding:18px}
+        .tcard-name{font-family:var(--heading-font);font-weight:600;font-size:17px;color:var(--net-brand-deep);margin-bottom:4px;line-height:1.25}
+        .tcard-role{font-size:13px;color:var(--gray);font-weight:500;margin-bottom:12px;line-height:1.45}
+        .tcard-role small{font-size:12px;color:var(--gray-light);font-weight:500}
+        .tcard-link{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;color:var(--net-brand);transition:gap .25s}
+        .tcard-link::after{content:'→'}
+        .tcard:hover .tcard-link{gap:9px}
 
         /* ═══ REVIEWS ═══ */
         .reviews-sec{background:var(--warm-bg)}
@@ -427,8 +422,7 @@
             .a11y-panel{right:12px;top:66px;width:260px}
             .diag-grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
             .wins-grid{grid-template-columns:repeat(2,1fr)}
-            .team-group{grid-template-columns:1fr;gap:18px}
-            .team-group-text{padding:0 6px 8px}
+            .team-grid{grid-template-columns:repeat(3,1fr);gap:18px}
         }
 
         @media(max-width:768px){
@@ -468,9 +462,10 @@
             .price-grid{gap:20px}
             .price-col{padding:20px}
             .pr .n,.pr .v{font-size:12px}
-            .team-slider{padding:0 0 12px}
-            .tm{flex:0 0 190px}
-            .tm-avatar{width:190px;height:240px}
+            .team-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+            .tcard-body{padding:14px}
+            .tcard-name{font-size:15px}
+            .tcard-role{font-size:12px;margin-bottom:10px}
             .photo-break{grid-template-columns:1fr;padding:0 16px;gap:8px}
             .map-sec{padding:0 16px}
             .map-fr iframe{height:220px}
@@ -490,10 +485,11 @@
             .appt-modal{padding:28px 20px}
             .wins-grid{grid-template-columns:1fr}
             .win-card{padding:22px 18px}
-            .team-group{padding:12px;border-radius:var(--r)}
-            .team-group-img{border-radius:16px}
         }
 
+        @media(max-width:480px){
+            .team-grid{grid-template-columns:1fr;gap:14px}
+        }
         @media(max-width:400px){
             .trust-row{grid-template-columns:1fr;gap:6px}
             .trust-card{display:flex;align-items:center;gap:12px;text-align:left;padding:14px}
@@ -865,7 +861,7 @@
     <div class="w">
         <div class="method">
             <div class="method-img fade-in fade-left">
-                <img src="img/method-new.jpg" alt="Микротоковая рефлексотерапия и работа специалиста">
+                <img src="img/method-procedure.jpg" alt="Микротоковая рефлексотерапия и работа специалиста">
             </div>
             <div class="method-content fade-in fade-right">
                 <h3>Микротоковая рефлексотерапия — основа реабилитации</h3>
@@ -943,105 +939,109 @@
 <!-- ═══ TEAM ═══ -->
 <section class="sec" id="team" style="background:var(--gray-bg)">
     <div class="w">
-        <div class="sec-head fade-in" style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
-            <div>
-                <h2>Наши <span class="hl">специалисты</span></h2>
-                <p>Врачи, педагоги и специалисты с опытом в реабилитации детей с особенностями развития.</p>
+        <div class="sec-head fade-in">
+            <h2>Наши <span class="hl">специалисты</span></h2>
+            <p>12 врачей, педагогов и специалистов с опытом в реабилитации детей с особенностями развития. У каждого — действующие сертификаты и обучение по фирменной методике «Реацентр».</p>
+        </div>
+        <div class="team-grid fade-in stagger">
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec">Невролог</span><img src="img/team-alagyan.jpg" alt="Алагян И. Г."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Алагян Инна Григорьевна</div>
+                    <div class="tcard-role">Заведующая, детский невролог <small>· стаж 24 года</small></div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
             </div>
-            <div class="team-nav">
-                <span id="tCnt">1/12</span>
-                <button onclick="sTeam(-1)" aria-label="Назад">&#8592;</button>
-                <button onclick="sTeam(1)" aria-label="Вперёд">&#8594;</button>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec sk">Невролог</span><img src="img/team-tekuteva-new.jpg" alt="Текутьева Н. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Текутьева Надежда Анатольевна</div>
+                    <div class="tcard-role">Поведенческий невролог, к.м.н. <small>· стаж 24 года</small></div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec tl">Педиатр</span><img src="img/team-batareeva.jpg" alt="Батареева А. Н."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Батареева Анжелика Николаевна</div>
+                    <div class="tcard-role">Врач-педиатр, рефлексотерапевт <small>· стаж 31 год</small></div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec cy">Психолог</span><img src="img/team-kiseleva-new.jpg" alt="Киселева Л. В."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Киселева Лариса Валентиновна</div>
+                    <div class="tcard-role">Детский психолог</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec">Логопед</span><img src="img/team-chuprina.jpg" alt="Чуприна Е. С."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Чуприна Елена Сергеевна</div>
+                    <div class="tcard-role">Логопед</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec sk">Массажист</span><img src="img/team-katykin-new.jpg" alt="Катыкин И. И."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Катыкин Игорь Игоревич</div>
+                    <div class="tcard-role">Массажист, инструктор ЛФК <small>· стаж 17 лет</small></div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec tl">Администратор</span><img src="img/team-statsenko-new.jpg" alt="Стаценко А. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Стаценко Алла Анатольевна</div>
+                    <div class="tcard-role">Администратор</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec cy">Психолог</span><img src="img/team-polezhaeva.jpg" alt="Полежаева Е. Н."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Полежаева Елена Николаевна</div>
+                    <div class="tcard-role">Детский психолог</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec">Медсестра</span><img src="img/team-ostrykh.jpg" alt="Острых С. С."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Острых Светлана Сергеевна</div>
+                    <div class="tcard-role">Медицинская сестра по массажу</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec sk">Медсестра</span><img src="img/team-seredkina.jpg" alt="Серёдкина О. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Серёдкина Олеся Анатольевна</div>
+                    <div class="tcard-role">Медицинская сестра</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec tl">Зам. директора</span><img src="img/team-takova.jpg" alt="Такова Н. Ю."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Такова Наталья Юрьевна</div>
+                    <div class="tcard-role">Заместитель директора</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
+            </div>
+            <div class="tcard">
+                <div class="tcard-img"><span class="tcard-spec cy">Санитарка</span><img src="img/team-akimova.jpg" alt="Акимова Л. А."></div>
+                <div class="tcard-body">
+                    <div class="tcard-name">Акимова Лариса Анатольевна</div>
+                    <div class="tcard-role">Санитарка, фея чистоты</div>
+                    <a class="tcard-link" href="legal.html#specialists">Образование и сертификаты</a>
+                </div>
             </div>
         </div>
-        <div class="team-group fade-in">
-            <div class="team-group-img">
-                <img src="img/team-group.jpg" alt="Команда специалистов Реацентра Развитие">
-            </div>
-            <div class="team-group-text">
-                <h3>Одна команда вокруг ребёнка</h3>
-                <p>В центре работают врачи, педагоги, психологи, массажисты и администраторы. Каждый помогает семье пройти курс спокойнее: от первой записи до маленьких ежедневных побед.</p>
-            </div>
-        </div>
-        <div class="team-slider fade-in stagger" id="tSlider">
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-alagyan.jpg" alt="Алагян И. Г."></div>
-                <div class="tm-name">Алагян Инна Григорьевна</div>
-                <div class="tm-spec">Заведующая, детский невролог</div>
-                <div class="tm-exp">стаж 24 года</div>
-                <div class="tm-edu">АГМУ, педиатрия · Ординатура «Реавиз», рефлексотерапия</div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-tekuteva-new.jpg" alt="Текутьева Н. А."></div>
-                <div class="tm-name">Текутьева Надежда Анатольевна</div>
-                <div class="tm-spec">Поведенческий невролог, к.м.н.</div>
-                <div class="tm-exp">стаж 24 года</div>
-                <div class="tm-edu">АГМУ, лечебное дело · К.м.н., 2019</div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-batareeva.jpg" alt="Батареева А. Н."></div>
-                <div class="tm-name">Батареева Анжелика Николаевна</div>
-                <div class="tm-spec">Врач-педиатр, рефлексотерапевт</div>
-                <div class="tm-exp">стаж 31 год</div>
-                <div class="tm-edu">АГМУ, педиатрия · Рефлексотерапия</div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-kiseleva-new.jpg" alt="Киселева Л. В."></div>
-                <div class="tm-name">Киселева Лариса Валентиновна</div>
-                <div class="tm-spec">Детский психолог</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-chuprina.jpg" alt="Чуприна Е. С."></div>
-                <div class="tm-name">Чуприна Елена Сергеевна</div>
-                <div class="tm-spec">Логопед</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-katykin-new.jpg" alt="Катыкин И. И."></div>
-                <div class="tm-name">Катыкин Игорь Игоревич</div>
-                <div class="tm-spec">Массажист, инструктор ЛФК</div>
-                <div class="tm-exp">стаж 17 лет</div>
-                <div class="tm-edu">Рубцовский мед. колледж · ЛФК, массаж</div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-statsenko-new.jpg" alt="Стаценко А. А."></div>
-                <div class="tm-name">Стаценко Алла Анатольевна</div>
-                <div class="tm-spec">Администратор</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-polezhaeva.jpg" alt="Полежаева Е. Н."></div>
-                <div class="tm-name">Полежаева Елена Николаевна</div>
-                <div class="tm-spec">Детский психолог</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-ostrykh.jpg" alt="Острых С. С."></div>
-                <div class="tm-name">Острых Светлана Сергеевна</div>
-                <div class="tm-spec">Медицинская сестра по массажу</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-seredkina.jpg" alt="Серёдкина О. А."></div>
-                <div class="tm-name">Серёдкина Олеся Анатольевна</div>
-                <div class="tm-spec">Медицинская сестра</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-takova.jpg" alt="Такова Н. Ю."></div>
-                <div class="tm-name">Такова Наталья Юрьевна</div>
-                <div class="tm-spec">Заместитель директора</div>
-                <div class="tm-exp"></div>
-            </div>
-            <div class="tm">
-                <div class="tm-avatar"><img src="img/team-akimova.jpg" alt="Акимова Л. А."></div>
-                <div class="tm-name">Акимова Лариса Анатольевна</div>
-                <div class="tm-spec">Санитарка, фея чистоты</div>
-                <div class="tm-exp"></div>
-            </div>
-        </div>
-        <div style="text-align:center;margin-top:20px"><a href="legal.html#specialists" style="font-size:13px;color:var(--accent);font-weight:600">Образование и квалификация специалистов &rarr;</a></div>
+        <div style="text-align:center;margin-top:32px"><a href="legal.html#specialists" style="font-size:13px;color:var(--accent);font-weight:600">Образование и квалификация специалистов &rarr;</a></div>
     </div>
 </section>
 
@@ -1330,19 +1330,6 @@ function toggleMenu(){
     var mm=document.getElementById('mobileMenu');
     mm.classList.toggle('open');
     document.body.style.overflow=mm.classList.contains('open')?'hidden':'';
-}
-
-function sTeam(d){
-    var s=document.getElementById('tSlider');
-    var card=s.querySelector('.tm');
-    var gap=parseFloat(getComputedStyle(s).gap)||16;
-    var step=card?card.getBoundingClientRect().width+gap:260;
-    s.scrollBy({left:d*step,behavior:'smooth'});
-    setTimeout(function(){
-        var i=Math.round(s.scrollLeft/step)+1;
-        var total=s.querySelectorAll('.tm').length;
-        document.getElementById('tCnt').textContent=Math.min(i,total)+'/'+total;
-    },350);
 }
 
 var maxLink='https://max.ru/u/f9LHodD0cOJCbSg2eh_UGSBRqzsEWApdFbPhHafbzpOwU2GBxOE9RoPuvUA';

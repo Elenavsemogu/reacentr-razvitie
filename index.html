@@ -413,7 +413,7 @@
             .burger{display:flex}
             .mobile-menu{top:68px}
             .hero{padding:118px 0 52px}
-            .hero-inner{grid-template-columns:1fr;gap:28px}
+            .hero-inner{grid-template-columns:1fr;gap:28px;min-height:auto;align-items:start}
             .caps-wrap{min-height:440px;max-width:400px;margin:0 auto}
             .about-grid{grid-template-columns:1fr;gap:28px}
             .about-img{max-height:300px}
@@ -435,7 +435,7 @@
             .team-grid{grid-template-columns:repeat(3,1fr);gap:18px}
         }
 
-        @media(max-width:767px){.hero-copy{position:static}}
+        @media(max-width:767px){.hero-copy{position:static;transform:none}}
         @media(max-width:768px){
             .w{padding:0 16px}
             .h-inner{padding:0 16px;height:60px}
@@ -1305,7 +1305,7 @@
     }else{
         var obs=new IntersectionObserver(function(entries){
             entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-        },{threshold:.12,rootMargin:'0px 0px -40px'});
+        },{threshold:.05,rootMargin:'0px 0px 0px'});
         animated.forEach(function(el){obs.observe(el)});
     }
 

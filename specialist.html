@@ -177,6 +177,11 @@
         var url = window.getSpecialistDocUrl(s, docId);
         var docMeta = spec.docs.find(function (d) { return d.id === docId; });
         if (!url || !docMeta) return;
+        // On mobile — open PDF in new tab (lighter)
+        if (window.innerWidth < 768) {
+            window.open(url, '_blank');
+            return;
+        }
         openPdf(url, docMeta.title);
     });
 

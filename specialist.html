@@ -177,15 +177,19 @@
         openPdf(url, docMeta.title);
     });
 
-    // Generate thumbnails for doc cards
+    // Generate thumbnails only on desktop and one at a time
     function generateThumbnails() {
         if (!window.pdfjsLib || location.protocol === 'file:') return;
-        var thumbs = document.querySelectorAll('.doc-thumb');
-        thumbs.forEach(function (thumb) {
+        if (window.innerWidth < 768) return; // skip on mobile
+        var thumbs = Array.from(document.querySelectorAll('.doc-thumb'));
+        var idx = 0;
+        function loadNext() {
+            if (idx >= thumbs.length) return;
+            var thumb = thumbs[idx++];
             var s = thumb.getAttribute('data-slug');
             var docId = thumb.getAttribute('data-doc');
             var url = window.getSpecialistDocUrl(s, docId);
-            if (!url) return;
+            if (!url) { loadNext(); return; }
             fetch(url).then(function (res) {
                 if (!res.ok) throw new Error('HTTP ' + res.status);
                 return res.arrayBuffer();
@@ -203,9 +207,11 @@
                     var placeholder = thumb.querySelector('.doc-thumb-placeholder');
                     if (placeholder) placeholder.remove();
                     thumb.insertBefore(canvas, thumb.firstChild);
+                    loadNext();
                 });
-            }).catch(function () { /* keep placeholder */ });
-        });
+            }).catch(function () { loadNext(); });
+        }
+        loadNext();
     }
     generateThumbnails();
 

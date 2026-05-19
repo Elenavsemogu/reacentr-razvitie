@@ -98,7 +98,6 @@
 </div>
 
 <script src="js/specialists-data.js"></script>
-<script src="js/pdf.min.js"></script>
 <script>
 (function () {
     'use strict';
@@ -177,9 +176,23 @@
         var url = window.getSpecialistDocUrl(s, docId);
         var docMeta = spec.docs.find(function (d) { return d.id === docId; });
         if (!url || !docMeta) return;
-        // On mobile — open PDF in new tab (lighter)
-        if (window.innerWidth < 768) {
-            window.open(url, '_blank');
+        // Lazy-load PDF.js if not yet loaded
+        if (!window.pdfjsLib) {
+            pdfTitle.textContent = docMeta.title;
+            pdfLoading.textContent = 'Загрузка просмотрщика…';
+            pdfLoading.style.display = 'block';
+            modal.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            var script = document.createElement('script');
+            script.src = 'js/pdf.min.js';
+            script.onload = function () {
+                pdfjsLib.GlobalWorkerOptions.workerSrc = 'js/pdf.worker.min.js';
+                openPdf(url, docMeta.title);
+            };
+            script.onerror = function () {
+                pdfLoading.textContent = 'Не удалось загрузить просмотрщик. Проверьте подключение.';
+            };
+            document.head.appendChild(script);
             return;
         }
         openPdf(url, docMeta.title);

@@ -267,6 +267,44 @@
         .rv-text{font-size:13px;color:#555;line-height:1.75;margin-bottom:16px}
         .rv-author{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
+        /* ═══ STORIES + VIDEO REVIEWS ═══ */
+        .stories-sec{background:linear-gradient(180deg,#fff 0%,#F0F7FF 100%);position:relative;overflow:hidden}
+        .stories-sec::before{content:'';position:absolute;right:-120px;top:80px;width:300px;height:300px;border-radius:50%;background:rgba(14,165,233,.12);filter:blur(2px)}
+        .stories-layout{display:grid;grid-template-columns:minmax(320px,.72fr) minmax(0,1.28fr);gap:22px;align-items:start;position:relative;z-index:1}
+        .story-video,.story-note,.story-mini{background:rgba(255,255,255,.94);border:1px solid rgba(29,76,170,.10);border-radius:var(--r-lg);box-shadow:var(--shadow-sm)}
+        .story-video{padding:14px;align-self:start}
+        .story-video video{width:100%;height:clamp(360px,42vw,520px);display:block;border-radius:var(--r);background:#0F2F70;object-fit:cover;object-position:center 22%}
+        .story-note{padding:34px;display:flex;flex-direction:column;justify-content:center}
+        .story-kicker{display:inline-flex;width:fit-content;align-items:center;gap:8px;padding:8px 14px;background:var(--accent-pale);border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+        .story-note h3{font-family:var(--heading-font);font-size:clamp(24px,3vw,34px);line-height:1.18;color:var(--net-brand-deep);margin-bottom:16px}
+        .story-note p{font-size:15px;color:var(--gray);line-height:1.75;margin-bottom:14px}
+        .story-copy blockquote{margin:16px 0;padding:16px 18px;border-left:4px solid var(--accent);background:var(--accent-pale);border-radius:0 var(--r-sm) var(--r-sm) 0;color:#334155;font-size:15px;line-height:1.75}
+        .story-points{display:grid;gap:10px;margin-top:12px}
+        .story-points span{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#334155;line-height:1.55}
+        .story-points span::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--net-sky);margin-top:7px;flex-shrink:0}
+        .story-parts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+        .story-part{appearance:none;border:1px solid rgba(29,76,170,.18);background:#fff;color:var(--accent);border-radius:100px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease}
+        .story-part:hover,.story-part:focus-visible{border-color:var(--accent);outline:none}
+        .story-part.is-active{background:var(--accent);border-color:var(--accent);color:#fff}
+        .story-src{font-size:12px!important;color:var(--gray-light)!important;margin-top:18px!important;margin-bottom:0!important}
+        .story-src a{color:var(--accent);font-weight:600}
+        .story-video-grid-head{text-align:center;margin-top:38px;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+        .story-video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin:14px auto 0;max-width:660px;align-items:stretch;position:relative;z-index:1}
+        .story-mini{display:flex;flex-direction:column;appearance:none;text-align:left;font:inherit;color:inherit;cursor:pointer;padding:0;overflow:hidden;border-radius:var(--r-lg);transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease,background .35s ease}
+        .story-mini:hover,.story-mini:focus-visible{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--accent-light);outline:none}
+        .story-mini.is-active{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset,var(--shadow-sm)}
+        .story-mini-thumb{position:relative;overflow:hidden;background:#0F2F70;border-radius:var(--r-lg) var(--r-lg) 0 0}
+        .story-mini-thumb img{width:100%;aspect-ratio:4/5;display:block;object-fit:cover;object-position:center 12%;transition:transform .4s ease}
+        .story-mini:hover .story-mini-thumb img{transform:scale(1.05)}
+        .story-mini-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,47,112,0) 55%,rgba(15,47,112,.28) 100%);pointer-events:none}
+        .story-mini-play{position:absolute;left:14px;bottom:14px;z-index:1;display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 10px;border-radius:100px;background:rgba(255,255,255,.94);color:var(--accent);font-size:12px;font-weight:800;box-shadow:0 8px 22px rgba(15,47,112,.28);transition:transform .3s ease,background .3s ease}
+        .story-mini-play::before{content:'▶';font-size:11px;line-height:1;display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;padding-left:2px}
+        .story-mini-play::after{content:'Смотреть'}
+        .story-mini:hover .story-mini-play,.story-mini.is-active .story-mini-play{transform:scale(1.04);background:#fff}
+        .story-mini-caption{padding:16px 18px 18px}
+        .story-mini h4{font-size:16px;font-weight:800;color:var(--net-brand-deep);margin:0 0 6px}
+        .story-mini p{font-size:13px;color:var(--gray);line-height:1.55;margin:0}
+
         /* ═══ TRANSPORT ═══ */
         .transport-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
         .transport-card{padding:16px;background:var(--gray-bg);border-radius:var(--r-sm);font-size:13px}
@@ -422,6 +460,8 @@
             .srv-grid{grid-template-columns:1fr 1fr}
             .price-acc{grid-template-columns:1fr}.price-acc-item:not(.open) .price-acc-body{max-height:0}
             .rv-grid{grid-template-columns:1fr 1fr}
+            .stories-layout{grid-template-columns:1fr}
+            .story-video-grid{grid-template-columns:1fr 1fr}
             .contacts-inner{grid-template-columns:1fr}
             .ct-info{padding:40px 24px}
             .ct-form{border-radius:0;padding:40px 24px}
@@ -470,6 +510,16 @@
             .rv-grid::-webkit-scrollbar{display:none}
             .rv{min-width:260px;max-width:280px;scroll-snap-align:start;flex-shrink:0;padding:16px}
             .rv-text{font-size:13px}
+            .story-note{padding:24px 20px}
+            .story-note p{font-size:14px}
+            .story-video{padding:12px}
+            .story-video video{height:300px}
+            .story-video-grid-head{margin-top:28px}
+            .story-video-grid{grid-template-columns:1fr 1fr;gap:12px;max-width:none}
+            .story-mini-thumb img{aspect-ratio:4/5}
+            .story-mini-play::after{width:46px;height:46px;font-size:15px}
+            .story-mini-caption{padding:12px 14px 14px}
+            .story-mini h4{font-size:14px}
             .price-grid{gap:20px}
             .price-col{padding:20px}
             .pr .n,.pr .v{font-size:12px}
@@ -578,6 +628,7 @@
             <a href="#services">Услуги</a>
             <a href="#prices">Цены</a>
             <a href="#team">Специалисты</a>
+            <a href="#stories">Истории</a>
             <a href="#reviews">Отзывы</a>
             <a href="#contacts">Контакты</a>
         </nav>
@@ -595,6 +646,7 @@
     <a href="#services" onclick="toggleMenu()">Услуги</a>
     <a href="#prices" onclick="toggleMenu()">Цены</a>
     <a href="#team" onclick="toggleMenu()">Специалисты</a>
+    <a href="#stories" onclick="toggleMenu()">Истории</a>
     <a href="#reviews" onclick="toggleMenu()">Отзывы</a>
     <a href="#contacts" onclick="toggleMenu()">Контакты</a>
     <div style="padding:14px 0 8px;border-top:1px solid var(--gray-bg);margin-top:4px">
@@ -664,6 +716,53 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══ STORIES + VIDEO REVIEWS ═══ -->
+<section class="sec stories-sec" id="stories">
+    <div class="w">
+        <div class="sec-head fade-in">
+            <h2>Истории <span class="hl">родителей</span></h2>
+        </div>
+        <div class="stories-layout fade-in">
+            <div class="story-video">
+                <video id="storyMainVideo" controls playsinline preload="metadata" poster="img/video-posters/vk-review-01.jpg">
+                    <source id="storyMainSource" src="video/reviews/vk-review-01.mp4" type="video/mp4">
+                    Ваш браузер не поддерживает воспроизведение видео.
+                </video>
+                <div class="story-parts" id="storyParts" aria-label="Части видеоистории"></div>
+            </div>
+            <article class="story-note">
+                <div class="story-kicker" id="storyKicker">История Егора</div>
+                <h3 id="storyTitle">Как Егор (9 лет) стал общаться с одноклассниками и завел друзей</h3>
+                <div class="story-copy" id="storyText">
+                    <p>Егор пришел к нам с диагнозом — задержка психоречевого развития, проблемы с поведением. Мы побеседовали с мамой и с юным пациентом, распланировали лечение и начали курс.</p>
+                    <p>Сразу же после первых процедур рефлексотерапии мама Егора отметила очень хорошие результаты. Ребёнок стал более спокойным, речь стала более сложной.</p>
+                    <p>Семья дисциплинированно посещала процедуры, и основной результат уже после двух недель реабилитации не заставил себя ждать:</p>
+                    <blockquote>«В первый же день школы учитель мне позвонила и сказала, что Егор стал вести себя на уроках очень спокойно. Полностью выровнялось поведение, расширился словарный запас: в лексиконе ребёнка появились многие слова, которых он раньше не знал».</blockquote>
+                    <p>Мы были очень рады узнать, что с Егором стали охотнее общаться одноклассники, появились друзья.</p>
+                </div>
+                <p class="story-src">Источник: <a id="storySourceLink" href="https://vkvideo.ru/video-204657304_456239034?list=7fc327534c3740d9e8&access_key=7fc327534c3740d9e8" target="_blank" rel="noopener noreferrer">VK Видео Реацентр Барнаул «РАЗВИТИЕ», часть 1</a></p>
+            </article>
+        </div>
+        <div class="story-video-grid-head fade-in">Выберите историю</div>
+        <div class="story-video-grid fade-in" aria-label="Выбрать видеоотзыв">
+            <button class="story-mini is-active" type="button" data-story="0">
+                <span class="story-mini-thumb"><img src="img/video-posters/vk-review-01.jpg" alt="Превью истории Егора" loading="lazy"><span class="story-mini-play" aria-hidden="true"></span></span>
+                <span class="story-mini-caption">
+                    <h4>История Егора</h4>
+                    <p>Через две недели курса — спокойнее на уроках, появились друзья.</p>
+                </span>
+            </button>
+            <button class="story-mini" type="button" data-story="1">
+                <span class="story-mini-thumb"><img src="img/video-posters/vk-review-03.jpg" alt="Превью истории Иры" loading="lazy"><span class="story-mini-play" aria-hidden="true"></span></span>
+                <span class="story-mini-caption">
+                    <h4>История Иры</h4>
+                    <p>После двух курсов — слово «мама», ролевые игры, самостоятельность.</p>
+                </span>
+            </button>
         </div>
     </div>
 </section>
@@ -966,7 +1065,7 @@
                 </div>
             </div>
         </div>
-        <div class="price-note fade-in">Цены указаны по прайс-листу ООО «РАЗВИТИЕ» от 02.02.2026. Точную стоимость уточняйте по телефону <a href="tel:+73852506146" style="color:var(--accent);font-weight:700">+7 (3852) 50-61-46</a>. Возможна оплата через благотворительный фонд.</div>
+        <div class="price-note fade-in">Цены указаны по прайс-листу ООО «РАЗВИТИЕ» от 02.02.2026. <a href="docs/price.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--accent);font-weight:700">Открыть официальный прейскурант</a>. Точную стоимость уточняйте по телефону <a href="tel:+73852506146" style="color:var(--accent);font-weight:700">+7 (3852) 50-61-46</a>. Возможна оплата через благотворительный фонд.</div>
     </div>
 </section>
 
@@ -1222,6 +1321,7 @@
                     <li><a href="#services">услуги</a></li>
                     <li><a href="#prices">цены</a></li>
                     <li><a href="#documents">документы</a></li>
+                    <li><a href="#stories">истории</a></li>
                     <li><a href="#reviews">отзывы</a></li>
                     <li><a href="#contacts">контакты</a></li>
                 </ul>
@@ -1386,6 +1486,111 @@ function toggleMenu(){
 
 var maxLink='https://max.ru/u/f9LHodD0cOJCbSg2eh_UGSBRqzsEWApdFbPhHafbzpOwU2GBxOE9RoPuvUA';
 function openAppt(){window.open(maxLink,'_blank')}
+
+var storyReviews=[
+    {
+        kicker:'История Егора',
+        title:'Как Егор (9 лет) стал общаться с одноклассниками и завел друзей',
+        body:'<p>Егор пришел к нам с диагнозом — задержка психоречевого развития, проблемы с поведением. Мы побеседовали с мамой и с юным пациентом, распланировали лечение и начали курс.</p><p>Сразу же после первых процедур рефлексотерапии мама Егора отметила очень хорошие результаты. Ребёнок стал более спокойным, речь стала более сложной.</p><p>Семья дисциплинированно посещала процедуры, и основной результат уже после двух недель реабилитации не заставил себя ждать:</p><blockquote>«В первый же день школы учитель мне позвонила и сказала, что Егор стал вести себя на уроках очень спокойно. Полностью выровнялось поведение, расширился словарный запас: в лексиконе ребёнка появились многие слова, которых он раньше не знал».</blockquote><p>Мы были очень рады узнать, что с Егором стали охотнее общаться одноклассники, появились друзья.</p>',
+        videos:[
+            {
+                label:'Часть 1: знакомство с центром',
+                src:'video/reviews/vk-review-01.mp4',
+                poster:'img/video-posters/vk-review-01.jpg',
+                source:'VK Видео Реацентр Барнаул «РАЗВИТИЕ», часть 1',
+                url:'https://vkvideo.ru/video-204657304_456239034?list=7fc327534c3740d9e8&access_key=7fc327534c3740d9e8'
+            },
+            {
+                label:'Часть 2: результат после курса',
+                src:'video/reviews/vk-review-02.mp4',
+                poster:'img/video-posters/vk-review-02.jpg',
+                source:'VK Видео Реацентр Барнаул «РАЗВИТИЕ», часть 2',
+                url:'https://vkvideo.ru/video-204657304_456239035?list=3cd731aac84a90d11f'
+            }
+        ]
+    },
+    {
+        kicker:'История Иры',
+        title:'Такое долгожданное слово «мама». Ира, 5 лет',
+        body:'<p>Когда Ира пришла к нам, семье было важно увидеть живой отклик ребёнка: больше контакта, больше самостоятельности, больше интереса к миру вокруг. Мы побеседовали с мамой, оценили состояние Иры и начали курс лечения.</p><p>Первые изменения мама заметила уже после первого курса. Ира стала чаще улыбаться и смотреть в глаза — мы знаем насколько такой контакт важен близким. Девочка начала кушать сама, а по лестнице стала подниматься без помощи: не приставным шагом, а попеременно, ставя каждую ножку на свою ступеньку.</p><p>Постепенно начала меняться и игра. Если раньше игрушки просто выстраивались в ряд, то теперь появились ролевые сюжеты, Ира начала озвучивать игрушки: котёнок говорит «мяу», собачка — «гав». Вместо вокализации появились осмысленные звуки и настоящая игра.</p><p>Ушли и истерики. Ребёнок стал спокойнее, начал лучше включаться в происходящее и постепенно осваивать новые действия.</p><p>После второго курса произошло то, чего ожидает наверное каждая мама:</p><blockquote>«В августе я уже услышала от ребёнка слово “мама”, которое ждала на протяжении пяти лет. Наконец-то я его услышала».</blockquote><p>После этого у Иры продолжили появляться новые навыки. Она стала интересоваться другими детьми, начала играть, брать за руку, дома стала больше взаимодействовать с братом. Появились первые бытовые поручения, на которые девочка успешно отзывается.</p><p>Для семьи это огромный путь, пусть и маленькими шагами.</p>',
+        videos:[{
+            label:'Смотреть отзыв',
+            src:'video/reviews/vk-review-03.mp4',
+            poster:'img/video-posters/vk-review-03.jpg',
+            source:'VK Видео Реацентр Барнаул «РАЗВИТИЕ»',
+            url:'https://vkvideo.ru/video-204657304_456239031?list=ln-YME4VlvnVkADA218wi&t=11s'
+        }]
+    }
+];
+
+var activeStoryIndex=0;
+var activeStoryPart=0;
+
+function setStoryVideoPart(partIndex, autoplay){
+    var item=storyReviews[activeStoryIndex];
+    var part=item&&item.videos&&item.videos[partIndex];
+    var video=document.getElementById('storyMainVideo');
+    var source=document.getElementById('storyMainSource');
+    if(!item||!part||!video||!source)return;
+    activeStoryPart=partIndex;
+    video.pause();
+    source.src=part.src;
+    video.poster=part.poster;
+    video.load();
+    if(autoplay)video.play().catch(function(){});
+    var link=document.getElementById('storySourceLink');
+    link.href=part.url;
+    link.textContent=part.source;
+    document.querySelectorAll('.story-part').forEach(function(btn){
+        btn.classList.toggle('is-active',btn.dataset.part===String(partIndex));
+    });
+}
+
+function renderStoryParts(item){
+    var wrap=document.getElementById('storyParts');
+    if(!wrap)return;
+    wrap.innerHTML='';
+    if(!item.videos||item.videos.length<2)return;
+    item.videos.forEach(function(part,idx){
+        var btn=document.createElement('button');
+        btn.type='button';
+        btn.className='story-part'+(idx===activeStoryPart?' is-active':'');
+        btn.dataset.part=String(idx);
+        btn.textContent=part.label;
+        btn.addEventListener('click',function(){
+            setStoryVideoPart(idx,true);
+        });
+        wrap.appendChild(btn);
+    });
+}
+
+function selectStoryReview(index){
+    var item=storyReviews[index];
+    if(!item)return;
+    activeStoryIndex=index;
+    activeStoryPart=0;
+    document.getElementById('storyKicker').textContent=item.kicker;
+    document.getElementById('storyTitle').textContent=item.title;
+    document.getElementById('storyText').innerHTML=item.body;
+    renderStoryParts(item);
+    setStoryVideoPart(0,false);
+    document.querySelectorAll('.story-mini').forEach(function(btn){
+        btn.classList.toggle('is-active',btn.dataset.story===String(index));
+    });
+}
+
+document.querySelectorAll('.story-mini').forEach(function(btn){
+    btn.addEventListener('click',function(){
+        selectStoryReview(Number(btn.dataset.story));
+    });
+});
+selectStoryReview(0);
+document.getElementById('storyMainVideo').addEventListener('ended',function(){
+    var item=storyReviews[activeStoryIndex];
+    if(item&&item.videos&&activeStoryPart<item.videos.length-1){
+        setStoryVideoPart(activeStoryPart+1,true);
+    }
+});
 
 var services=[
 {title:'Микротоковая рефлексотерапия (МТРТ)',desc:'Запатентованная методика восстановления нервных связей, одобренная Минздравом РФ.',
